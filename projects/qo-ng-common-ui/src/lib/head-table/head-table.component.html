@@ -1,0 +1,34 @@
+<div fxLayout="row" fxLayoutAlign="space-between start" fxLayoutGap="10px">
+    <h1 fxFlex class="main-title">{{title }}</h1>
+    <div fxFlex="40" fxLayout="row wrap" fxLayoutAlign="end end" class="buttons">
+        <ng-container *ngFor="let button of buttons">
+            <button *ngIf="!button.show || button.show({})" mat-button [color]="button.color" mat-flat-button (click)="button.action($event)" type="button">
+                <span *ngIf="!!button.name">{{button.name }}</span>
+                <mat-icon *ngIf="!!button.icon" fontSet="fa" fontIcon="fa-{{button.icon}}"[appTooltip]="button.tooltip"></mat-icon>
+            </button>
+        </ng-container>
+    </div>
+</div>
+
+<mat-expansion-panel class="filter-container section-block small-z" *ngIf="showFilter">
+    <mat-expansion-panel-header>
+        <mat-panel-title fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="0.8rem">
+            <mat-icon color="accent" fontSet="fa" fontIcon="fa-filter"></mat-icon>
+            <span class="text-active" fxFlex>{{'Filtrar'}}</span>
+        </mat-panel-title>
+    </mat-expansion-panel-header>
+
+    <ng-content></ng-content>
+
+    <div *ngIf="showFilterButtons" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="10px" class="buttons">
+        <button mat-button color="accent" mat-flat-button (click)="applyFilter()">
+            <span>{{'Aplicar filtro' }}</span>
+            <mat-icon fontSet="fa" fontIcon="fa-check"></mat-icon>
+        </button>
+        <button *ngIf="!!formFilter" mat-button mat-flat-button (click)="resetFilter()" color="normal">
+                <span >{{'Limpiar filtro' }}</span> 
+                <mat-icon fontSet="fa" fontIcon="fa-eraser"></mat-icon>
+            </button>
+    </div>
+
+</mat-expansion-panel>

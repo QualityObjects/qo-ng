@@ -1,0 +1,29 @@
+:host-context(.mobile) .main-title {
+    font-size: 24px;
+} 
+
+.buttons .mat-button {
+    margin: 5px;
+}
+
+.filter-container {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: white;
+    .mat-expansion-panel-header {
+        padding-left: 10px;
+
+        .mat-panel-title span {
+            font-weight: 400;
+            font-size: 1.2rem;
+        }
+    }
+    &.section-block:not(.mat-expanded){
+        box-shadow: none !important;
+        border: none;
+        background-color: transparent;
+    }
+    .buttons {
+        margin-top: 10px;
+    }
+}

@@ -1,0 +1,13 @@
+<div class="container" [class.shadow]="showShadow" gdGap="0" gdAreas="top top top | left center right | bottom bottom bottom">  
+
+  <div class="text-container" gdArea="center">{{ text }}</div>
+
+  <div class="triangle" [ngClass]="orientation" *ngIf="showArrow">    
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 10">
+        <path
+           d="M 0,0 L 10,10 L 20,0 z"
+           style="fill:currentColor;" />
+      </svg>
+  <div>
+</div>
+

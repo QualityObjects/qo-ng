@@ -1,0 +1,14 @@
+
+    <mat-card-title>{{title | uppercase }}</mat-card-title>
+    
+    <div mat-dialog-content>
+        <span>{{message}}</span>
+    </div>
+    
+    <mat-dialog-actions>
+        <div fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="10px" fxFill>
+            <button mat-flat-button color="primary" [mat-dialog-close]="true" >{{'Aceptar'}}</button>
+            <button mat-flat-button type="button" color="normal" mat-dialog-close cdkFocusInitial>{{'Cancelar'}}</button>
+        </div>
+    </mat-dialog-actions>
+

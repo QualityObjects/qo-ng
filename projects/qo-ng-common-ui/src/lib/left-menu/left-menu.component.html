@@ -1,0 +1,37 @@
+<mat-nav-list>
+    <ng-container *ngFor="let menuItem of actions; let i = index;">
+        <ng-container *ngTemplateOutlet="menuItemTree;context:{item: menuItem, level: 1, i: i}"></ng-container>
+    </ng-container>
+</mat-nav-list>
+
+
+<ng-template #menuItemTree let-item="item" let-level="level" let-i="i">
+    <ng-container *ngIf="item.show">
+        <a *ngIf="!item.items" mat-list-item [class.children]="level > 1" [class.active]="item.link[0] === currentMenu" (click)="setMenu(item.link)" [routerLink]="item.link">
+            <!-- Acción individual -->
+            <div class="item-content" fxLayout="row" fxLayoutGap="10px" fxLayoutAlign="start center" fxFill>
+                <mat-icon class="item-icon" *ngIf="!!item.icon" fontSet="fa" fontIcon="fa-{{item.icon}}"></mat-icon>
+                <span class="item-label {{item.class}}">{{ item.label }}</span>
+            </div>
+        </a>
+        <ng-container *ngIf="!!item.items">
+            <!-- Item con subnenú -->
+            <mat-divider *ngIf="level === 1"></mat-divider>
+            <a mat-list-item cdkAccordionItem (click)="toggleMenu(i)" [expanded]="!collapsedMenus[i]" class="submenu" [class.level1]="level === 1">
+                <div fxLayout="row" fxLayoutAlign="space-between center" fxFill>
+                    <span class="submenu-label"> {{item.label }}</span>
+                    <button *ngIf="!!item.buttonLabel" mat-button color="accent" (click)="item.click();$event.stopPropagation()" class="item-button">
+                <span>{{item.buttonLabel() }}</span>
+              </button>
+                    <mat-icon [@iconExpansion]="!collapsedMenus[i] ? 'expanded' : 'collapsed'">keyboard_arrow_up</mat-icon>
+                </div>
+            </a>
+            <mat-nav-list [@bodyExpansion]="!collapsedMenus[i] ? 'expanded' : 'collapsed'">
+                <ng-container *ngFor="let subItem of item.items; let j = index;">
+                    <!-- Items siguiente nivel -->
+                    <ng-container *ngTemplateOutlet="menuItemTree;context:{item: subItem, level: level+1, i: level*100+j}"></ng-container>
+                </ng-container>
+            </mat-nav-list>
+        </ng-container>
+    </ng-container>
+</ng-template>

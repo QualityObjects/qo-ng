@@ -14,7 +14,13 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "qo-ng-common-ui": [
+        "dist/qo-ng-common-ui/qo-ng-common-ui",
+        "dist/qo-ng-common-ui"
+      ]
+    }
   },
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,

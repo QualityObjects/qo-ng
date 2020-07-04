@@ -1,0 +1,30 @@
+<div fxLayout="column" class="file-upload-container" drop-container (fileDropped)="updateFilesList($event)">
+    <div fxFill class="drop-container" fxLayout="row" fxLayoutGap="20px" fxLayoutAlign="left center">
+        <!-- TODO ROBERT  -->
+        <button [disabled]="!allowMoreFiles" [color]="allowMoreFiles ? 'accent' : 'normal'" mat-icon-button type="button" (click)="fileDropRef.click()">
+        <mat-icon>note_add</mat-icon>
+    </button>
+
+        <input fxHide type="file" #fileDropRef id="fileDropRef" (change)="updateFilesList($event.target.files)" />
+        <span *ngIf="allowMoreFiles" class="placeholder" [class.mat-error]="errorState">{{placeholder}}</span>
+    </div>
+    <span *ngIf="!!errorMsg" class="color-warn error-msg">{{errorMsg}}</span>
+    <span *ngIf="!!hint" class="hint">{{hint}}</span>
+    <div class="files-list" *ngIf="!empty">
+        <mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
+        <ng-container *ngFor="let file of value; let i = index">
+            <div fxLayout="row" fxLayoutGap="1rem" fxLayoutAlign="space-between center" class="single-file">
+                <span class="filename" fxFlex="70">
+            {{ file.name }}
+          </span>
+                <span class="size" fxFlex="20">
+            {{ formatBytes(file.size,2) }}
+          </span>
+                <button class="delete" fxFlex="10" mat-icon-button (click)="deleteFile(i)">
+            <mat-icon fontSet="fas" fontIcon="fa-trash"></mat-icon>
+          </button>
+            </div>
+        </ng-container>
+    </div>
+
+</div>

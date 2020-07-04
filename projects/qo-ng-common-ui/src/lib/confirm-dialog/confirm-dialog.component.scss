@@ -1,0 +1,13 @@
+:host {
+    display:block;
+    height: 100%;
+}
+
+.mat-dialog-content {
+    //min-height: 80px;
+    margin: 15px 0;
+}
+
+mat-dialog-actions {
+    width: 100%;
+}

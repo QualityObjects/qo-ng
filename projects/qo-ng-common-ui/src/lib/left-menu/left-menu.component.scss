@@ -1,0 +1,68 @@
+@import "../common/app-colors";
+$menu-item-height: 36px;
+$active-menu-border-width: 4px;
+:host {
+    display: block;
+    height: 100%;
+    width: 100%;
+    padding-top: 10px;
+    background-color: $menu-background-color;
+}
+
+mat-nav-list {
+    a.mat-list-item {
+        height: $menu-item-height;
+        font-size: 1rem;
+        .item-icon {
+            width: 1.2rem;
+            height: 1.2rem;
+            font-size: 1.2rem;
+        }
+        .item-label {
+            padding-top: 3px;
+        }
+    }
+    a.mat-list-item.active,
+    a.mat-list-item.active:focus {
+        background-color: white;
+        //color: $accent_color;
+        border-left: $active-menu-border-width solid $primary_color;
+        border-top-left-radius: 3px;
+        border-bottom-left-radius: 3px;
+        .item-content {
+            margin-left: -$active-menu-border-width;
+        }
+    }
+    width: 100%;
+    padding: 0;
+    mat-nav-list {
+        padding-top: 0;
+    }
+    button.mat-button.item-button {
+        max-height: 32px;
+        border-radius: 0;
+        border: none;
+    }
+    .mat-divider {
+        margin-top: 20px;
+        margin-bottom: 10px;
+    }
+    .submenu-label {
+        font-size: 1rem;
+        font-weight: 600;
+    }
+    .item-label {
+        font-size: 1rem;
+    }
+    a.children {
+        padding-left: 10px;
+    }
+}
+
+div[role="listitem"] {
+    padding-left: 1rem;
+}
+
+div[role="listitem"] span:first-of-type {
+    padding-left: 10px;
+}

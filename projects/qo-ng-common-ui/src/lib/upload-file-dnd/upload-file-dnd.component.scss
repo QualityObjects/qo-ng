@@ -1,0 +1,91 @@
+.file-upload-container {
+    &.error {
+//        border: 1px dashed #d42531;
+    }
+    border: 1px dashed rgba(0, 0, 0, 0.54);
+    width: 100%;
+    border-radius: 6px;
+    &.drag-over {
+        opacity: 0.6;
+        border: 1px dotted black;
+        .drop-container {
+            background-color: #e6f6f9,
+        }
+    }
+    .drop-container {
+        min-height: 4rem !important; // Workaround, crecía el height al hacer click
+        width: 100%;
+        background-color: transparent; // mat-color($qo, 100);
+        max-height: 4rem;
+        height: 4rem;
+        padding: 10px;
+        .placeholder {
+            font-size: 1rem;
+            text-align: center center;
+            &:not(.mat-error) {
+                color: rgba(0, 0, 0, 0.54);
+            }
+        }
+        .mat-icon-button {
+            height: 2rem;
+            line-height: 2rem;
+            .mat-icon {
+                line-height: 2rem;
+                font-size: 2rem;
+                height: 2rem;
+                width: 2rem;
+            }
+        }
+    }
+    .error-msg {
+        font-size: 0.85rem;
+        width: 100%;
+        text-align: center;
+    }
+    .hint {
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 0.85rem;
+        width: 100%;
+        text-align: center;
+    }
+    .files-list {
+        width: 100%;
+        .single-file {
+            /* background-color: mat-color($qo, 100); */
+            border-top: 1px solid rgba(0, 0, 0, 0.12);
+            padding: 0.5rem;
+            .delete {
+                display: flex;
+                margin-left: 0.5rem;
+                cursor: pointer;
+                align-self: flex-end;
+            }
+            .filename {
+                font-size: 1rem;
+                font-weight: 500;
+            }
+            .size {
+                font-size: 0.9rem;
+                font-weight: 500;
+            }
+        }
+    }
+}
+
+.fileover {
+    animation: shake 1s;
+    animation-iteration-count: infinite;
+}
+
+::ng-deep .mat-form-field.mat-form-field-type-upload-file-dnd .mat-form-field-underline {
+    display: none;
+}
+
+:host-context(.mat-form-field.mat-form-field-invalid) .file-upload-container {
+    border: 1px dashed #d42531;
+}
+
+
+::ng-deep upload-file-dnd + span.mat-form-field-label-wrapper {
+    display: none;
+}
