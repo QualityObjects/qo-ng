@@ -10,6 +10,7 @@
   },
   "private": true,
   "dependencies": {
+    "qo-ng-common-ui": "file:dist/qo-ng-common-ui",
     "@angular/animations": "^9.1.11",
     "@angular/common": "^9.1.11",
     "@angular/core": "^9.1.11",
@@ -51,5 +52,4 @@
     "tslint": "~6.1.0",
     "typescript": "~3.8.3"
   }
-
 }
