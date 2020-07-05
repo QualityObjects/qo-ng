@@ -1,5 +1,5 @@
 {
-  "name": "qo-ng-common-ui",
+  "name": "@qo-ng/common-ui",
   "version": "0.0.1",
   "peerDependencies": {
     "@angular/animations": "^9.1.11",
@@ -19,7 +19,24 @@
   "dependencies": {
     "tslib": "^1.10.0"
   },
+  "publishConfig": {
+    "registry": "https://nexus.qodev.es/repository/qo-npm/"
+  },
+  "description": "This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.11.",
+  "main": "public-api.js",
   "scripts": {
-    "prepare": "ng build"
-  }  
+    "version": "echo $npm_package_version"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@gitlab.com:qointernal/qo-libs/qo-ng.git"
+  },
+  "keywords": [
+    "angular",
+    "material",
+    "ui",
+    "common"
+  ],
+  "author": "Quality Objects S.L.",
+  "license": "MIT"
 }

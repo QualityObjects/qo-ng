@@ -2,7 +2,6 @@
   "name": "qo-ng",
   "version": "0.0.1",
   "scripts": {
-    "prepare": "ng build",
     "ng": "ng",
     "build": "ng build",
     "test": "ng test",
@@ -10,7 +9,6 @@
   },
   "private": true,
   "dependencies": {
-    "qo-ng-common-ui": "file:dist/qo-ng-common-ui",
     "@angular/animations": "^9.1.11",
     "@angular/common": "^9.1.11",
     "@angular/core": "^9.1.11",

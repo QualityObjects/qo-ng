@@ -1,8 +1,9 @@
 import { Injectable, OnDestroy } from '@angular/core';
-import { EventEmitter } from 'events';
-import { BehaviorSubject, Subject } from 'rxjs';
+import { Subject } from 'rxjs';
 
-@Injectable()
+@Injectable({
+    providedIn: 'root'
+})
 export class BusService implements OnDestroy {
     private channels : {[eventType: string] : Subject<any>} = {};
 
