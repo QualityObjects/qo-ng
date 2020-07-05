@@ -118,4 +118,4 @@ import { UploadFileComponent } from './upload-file-dnd/upload-file-dnd.component
   providers: [ 
 ]
 })
-export class SharedModule { }
+export class QOSharedModule { }
