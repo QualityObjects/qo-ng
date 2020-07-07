@@ -1,0 +1,42 @@
+{
+    "name": "the-table",
+    "version": "0.0.1",
+    "peerDependencies": {
+        "@angular/animations": "^9.1.11",
+        "@angular/common": "^9.1.11",
+        "@angular/core": "^9.1.11",
+        "@angular/flex-layout": "^9.0.0-beta.29",
+        "@angular/forms": "^9.1.11",
+        "@angular/platform-browser": "^9.1.11",
+        "@angular/platform-browser-dynamic": "^9.1.11",
+        "@angular/cdk": "^9.2.4",
+        "@angular/material": "^9.2.4",
+        "@angular/material-moment-adapter": "^9.2.4",
+        "@angular/router": "^9.1.11",
+        "moment": "2.24.0",
+        "luxon": "^1.22.0"
+    },
+    "dependencies": {
+        "tslib": "^1.10.0"
+    },
+    "publishConfig": {
+        "registry": "https://nexus.qodev.es/repository/qo-npm/"
+    },
+    "description": "This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.11.",
+    "main": "public-api.js",
+    "scripts": {
+        "version": "echo $npm_package_version"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git@gitlab.com:qointernal/qo-libs/qo-ng.git"
+    },
+    "keywords": [
+        "angular",
+        "material",
+        "ui",
+        "common"
+    ],
+    "author": "Quality Objects S.L.",
+    "license": "MIT"
+}

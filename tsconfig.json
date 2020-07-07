@@ -19,6 +19,10 @@
       "qo-ng-common-ui": [
         "dist/qo-ng-common-ui/qo-ng-common-ui",
         "dist/qo-ng-common-ui"
+      ],
+      "the-table": [
+        "dist/the-table/the-table",
+        "dist/the-table"
       ]
     }
   },

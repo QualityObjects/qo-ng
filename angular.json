@@ -42,6 +42,50 @@
           }
         }
       }
-    }},
-  "defaultProject": "qo-ng-common-ui"
+    },
+    "the-table": {
+      "projectType": "library",
+      "root": "projects/the-table",
+      "sourceRoot": "projects/the-table/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/the-table/tsconfig.lib.json",
+            "project": "projects/the-table/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/the-table/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/the-table/src/test.ts",
+            "tsConfig": "projects/the-table/tsconfig.spec.json",
+            "karmaConfig": "projects/the-table/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/the-table/tsconfig.lib.json",
+              "projects/the-table/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "qo-ng-common-ui",
+  "cli": {
+    "analytics": "ca1f10d8-67cc-4ac3-9dac-360963863945"
+  }
 }

@@ -1,0 +1,214 @@
+/* @import 'siroco-theme'; */
+
+:host {
+    width: 100%;
+}
+
+.mat-paginator {
+    background-color: transparent !important;
+}
+
+.mat-table ::ng-deep {
+    .mat-row {
+        border: none;
+        min-height: unset;
+        align-items: stretch;
+        height: 40px;
+        min-height: 40px;
+        .mat-icon {
+            font-size: 1.2rem;
+            line-height: 1.2rem;
+        }
+        &.odd {
+            background-color: #f5f5f5;
+        }
+        &.detail {
+            height: 0;
+            min-height: 0;
+            display: table-row;
+            &::after {
+                display: none;
+            }
+            td.mat-cell {
+                display: table-cell;
+                padding: 0rem 2rem;
+                margin: 0;
+                border-bottom-width: 0px;
+            }
+        }
+        &.drag-over {
+            opacity: 0.5;
+            border: 2px dotted #555;
+        }
+    }
+    .mat-header-row,
+    .mat-header-cell {
+        max-height: 36px;
+        min-height: 45px;
+        width: 100%;
+        border: none;
+        .mat-sort-header-container {
+            max-width: calc(100% - 4px);
+            .mat-sort-header-button {
+                max-width: calc(100% - 18px);
+            }
+        }
+    }
+    .mat-header-cell:first-of-type {
+        padding-left: 0px;
+    }
+    .mat-cell {
+        color: #888;
+        display: inline-flex;
+        padding: 0px 4px 4px 4px;
+        max-height: 100%;
+    }
+    .mat-header-cell {
+        padding-right: 4px;
+        align-items: flex-end;
+    }
+    .mat-sort-header-container {
+        font-size: 0.9rem;
+        color: rgb(59, 59, 59);
+        border-bottom: 2px solid rgb(218, 218, 218);
+        padding: 0 0 8px 4px;
+        width: 100%;
+    }
+    .mat-header-actions .mat-sort-header-container {
+        border-bottom: none;
+    }
+    .mat-column-actions .mat-icon {
+        line-height: 1;
+    }
+}
+
+mat-table {
+    overflow-x: auto;
+}
+
+.mat-flat-button {
+    max-height: 36px;
+    .mat-icon {
+        width: 20px;
+        height: 20px;
+        font-size: 20px;
+    }
+}
+
+.column-name {
+    opacity: 0.6;
+}
+
+.unique-cell {
+    margin-bottom: 10px;
+    padding: 10px;
+}
+
+.cell-image {
+    border-radius: 100%;
+    height: 25px;
+    width: 25px;
+    margin-top: 10px;
+    margin-left: 5px;
+    margin-right: 15px;
+    margin-bottom: 10px;
+}
+
+.mat-column-actions {
+    min-width: fit-content;
+}
+
+.table-container {
+    max-width: 100%;
+    width: 100%;
+}
+
+.mat-table ::ng-deep {
+    .mat-sort-header-indicator>div,
+    .mat-sort-header-stem {
+        display: none;
+    }
+}
+
+.mat-table {
+     ::ng-deep .mat-sort-header-arrow {
+        .mat-sort-header-indicator {
+            &::before {
+                font-family: "Font Awesome 5 Pro";
+                font-style: normal;
+                font-weight: 300;
+                font-size: 1.2rem;
+                content: "\f106";
+                position: absolute;
+                top: -0.3rem;
+            }
+        }
+    }
+}
+
+[aria-sort="descending"] {
+     ::ng-deep .mat-sort-header-arrow {
+        .mat-sort-header-indicator {
+            &::before {
+                font-family: "Font Awesome 5 Pro";
+                font-style: normal;
+                font-weight: 300;
+                font-size: 1.2rem;
+                content: "\f107";
+                position: absolute;
+                top: -0.8rem;
+            }
+        }
+    }
+}
+
+.highlight {
+    &:hover {
+        background-color: #eef3e2 !important;
+        //border: 1px solid #ddd;
+    }
+}
+
+.no-result-search {
+    width: auto;
+    height: 2vw;
+    font-size: 0.8rem;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.45;
+    color: #b9bebf;
+    margin-top: 16px;
+}
+
+.table-footer {
+    margin-top: 2px;
+    width: 100%;
+    border-top: 1px solid grey;
+}
+
+mat-cell.slider {
+    overflow: initial;
+    justify-content: center;
+}
+
+.chips-container {
+    width: 100%;
+    max-height: 100%;
+    display: flex;
+    overflow-x: auto;
+    overflow-y: hidden;
+    .chip {
+        border-radius: 12px;
+        border: 1px solid rgb(59, 59, 59);
+        max-height: 30px;
+        max-height: 30px;
+        padding: 1px 4px;
+        white-space: nowrap;
+        .mat-icon {
+            font-size: 16px;
+            line-height: 16px;
+            width: 16px;
+            height: 16px;
+        }
+    }
+}
