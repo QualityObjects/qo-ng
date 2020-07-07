@@ -23,6 +23,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
@@ -31,13 +32,15 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { RouterModule } from '@angular/router';
 import { HeadTableComponent } from './head-table/head-table.component';
+import { TableCellComponent } from './the-table/table-cell/table-cell.component';
 import { TheTableComponent } from './the-table/the-table.component';
 
 
 @NgModule({
   declarations: [
     TheTableComponent,
-    HeadTableComponent,
+    TableCellComponent,
+    HeadTableComponent,    
   ],
   imports: [
     RouterModule,
@@ -54,6 +57,7 @@ import { TheTableComponent } from './the-table/the-table.component';
     MatCheckboxModule,
     MatProgressBarModule,
     MatSelectModule,
+    MatSlideToggleModule,
     MatCardModule,
     MatButtonModule,
     MatLineModule,

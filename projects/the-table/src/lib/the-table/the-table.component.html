@@ -33,7 +33,7 @@
             <ng-container *ngIf="!!headerAction?.action">
               <button mat-icon-button [color]="headerAction?.color" type="button" (click)="headerAction.action()">
                 <mat-icon [fontSet]="headerAction?.icon.split(' ')[0]" [fontIcon]="headerAction?.icon.split(' ')[1]"
-                  [appTooltip]="headerAction.tooltip">
+                  [matTooltip]="headerAction.tooltip">
                 </mat-icon>
               </button>
             </ng-container>
@@ -45,7 +45,7 @@
           <ng-container *ngFor="let action of actions">
             <ng-container *ngIf="(!action.show || action.show(row))">
               <ng-container *ngIf="!!action.detailTemplate">
-                <button mat-icon-button [color]="action.color || ''" type="button" [appTooltip]="action.tooltip(row)"
+                <button mat-icon-button [color]="action.color || ''" type="button" [matTooltip]="action.tooltip(row)"
                   (click)="toggleDetailRow(row, action)">
                   <ng-container *ngIf="!action.icon">
                     <mat-icon fontSet="fa" fontIcon="fa-chevron-double-down"
@@ -59,13 +59,13 @@
               </ng-container>
               <ng-container *ngIf=" !!action.action">
                 <button *ngIf="!action.custom" mat-icon-button [color]="action.color || ''" type="button"
-                  [appTooltip]="!!action.tooltip && action.tooltip(row)" (click)="action.action(row)">
+                  [matTooltip]="!!action.tooltip && action.tooltip(row)" (click)="action.action(row)">
                   <mat-icon [fontSet]="action.icon.split(' ')[0]" [fontIcon]="action.icon.split(' ')[1]">
                   </mat-icon>
                 </button>
                 <button *ngIf="!!action.custom" [class.mat-flat-button]="!!action.custom(row).name" mat-icon-button
                   [class.mat-icon-button]="!action.custom(row).name" type="button" [color]="action.custom(row).color"
-                  (click)="action.action(row)" [appTooltip]="action.custom(row).tooltip(row)">
+                  (click)="action.action(row)" [matTooltip]="action.custom(row).tooltip(row)">
                   <span *ngIf="!!action.custom(row).name">{{action.custom(row).name}}</span>
                   <mat-icon [fontSet]="action.custom(row).icon.split(' ')[0]"
                     [fontIcon]="action.custom(row).icon.split(' ')[1]"></mat-icon>
@@ -93,8 +93,8 @@
     </ng-container>
     <mat-header-row *matHeaderRowDef="visibleColumns"></mat-header-row>
     <mat-row *matRowDef="let row; let index = dataIndex; columns: visibleColumns;" [class.highlight]="highlight"
-      [class.odd]="!!(index % 2)" [drop-container]="!!dndRowAction && !dropInProgress" [attr.rob]="'hola_' + index"
-      (fileDropped)="!!dndRowAction && onRowDrop($event, row)">
+      [class.odd]="!!(index % 2)" [attr.rob]="'hola_' + index"
+      (fileDropped)="!!dndRowAction && onRowDrop($event, row)"> <!--[drop-container]="!!dndRowAction && !dropInProgress" -->
     </mat-row>
 
     <mat-row *matRowDef="let row; columns: ['expandedDetail']" class="detail"></mat-row>

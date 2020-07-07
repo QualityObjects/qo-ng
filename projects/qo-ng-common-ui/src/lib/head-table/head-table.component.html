@@ -4,7 +4,7 @@
         <ng-container *ngFor="let button of buttons">
             <button *ngIf="!button.show || button.show({})" mat-button [color]="button.color" mat-flat-button (click)="button.action($event)" type="button">
                 <span *ngIf="!!button.name">{{button.name }}</span>
-                <mat-icon *ngIf="!!button.icon" fontSet="fa" fontIcon="fa-{{button.icon}}"[appTooltip]="button.tooltip"></mat-icon>
+                <mat-icon *ngIf="!!button.icon" fontSet="fa" fontIcon="fa-{{button.icon}}"[matTooltip]="button.tooltip"></mat-icon>
             </button>
         </ng-container>
     </div>

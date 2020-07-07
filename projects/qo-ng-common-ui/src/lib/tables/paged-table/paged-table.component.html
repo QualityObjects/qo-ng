@@ -44,10 +44,10 @@
                     <ng-container *ngFor="let action of actions">
                         <ng-container *ngIf="(!action.show || action.show(row))">
                             <ng-container *ngIf="!!action.action">
-                                <button *ngIf="!action.custom && (!!action.badgeNumber && action.badgeNumber(row)>=0 || !action.badgeNumber)" mat-icon-button [color]="action.color || ''" type="button" (click)="action.action(row)" [appTooltip]="action.tooltip">
+                                <button *ngIf="!action.custom && (!!action.badgeNumber && action.badgeNumber(row)>=0 || !action.badgeNumber)" mat-icon-button [color]="action.color || ''" type="button" (click)="action.action(row)" [matTooltip]="action.tooltip">
                                     <mat-icon [matBadge]="!!action.badgeNumber && action.badgeNumber(row)" matBadgeColor="accent" [matBadgeHidden]="!(!!action.badgeNumber && action.badgeNumber(row)>0)" matBadgeSize="small" >{{action.icon}}</mat-icon>
                                 </button>
-                                <button *ngIf="!!action.custom" [class.mat-flat-button]="!!action.custom(row).name" mat-icon-button [class.mat-icon-button]="!action.custom(row).name" type="button" [color]="action.custom(row).color" (click)="action.action(row)" [appTooltip]="action.custom(row).tooltip">
+                                <button *ngIf="!!action.custom" [class.mat-flat-button]="!!action.custom(row).name" mat-icon-button [class.mat-icon-button]="!action.custom(row).name" type="button" [color]="action.custom(row).color" (click)="action.action(row)" [matTooltip]="action.custom(row).tooltip">
                                     <span *ngIf="!!action.custom(row).name">{{action.custom(row).name}}</span>
                                     <mat-icon>{{action.custom(row).icon}}</mat-icon>
                                 </button>

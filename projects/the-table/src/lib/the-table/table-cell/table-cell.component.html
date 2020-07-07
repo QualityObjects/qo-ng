@@ -10,14 +10,14 @@
 
 <ng-template #tpl_icon let-row="row" let-column="column">
   <mat-icon color="{{column.color || ''}}" [fontSet]="column.cell_icon(row).split(' ')[0]"
-    [fontIcon]="column.cell_icon(row).split(' ')[1]" [appTooltip]="!!column.cell_tooltip && column.cell_tooltip(row)">
+    [fontIcon]="column.cell_icon(row).split(' ')[1]" [matTooltip]="!!column.cell_tooltip && column.cell_tooltip(row)">
   </mat-icon>
 </ng-template>
 
 <ng-template #tpl_action let-row="row" let-column="column">
   <button *ngIf="column.cell_action_show(row)" mat-icon-button [color]="column.cell_action(row).color" type="button"
     (click)="column.cell_action(row).action(row)"
-    [appTooltip]="!!column.cell_action(row).tooltip && column.cell_action(row).tooltip(row)" class="actionCell">
+    [matTooltip]="!!column.cell_action(row).tooltip && column.cell_action(row).tooltip(row)" class="actionCell">
     <mat-icon [fontSet]="column.cell_action(row).icon.split(' ')[0]"
       [fontIcon]="column.cell_action(row).icon.split(' ')[1]"></mat-icon>
   </button>
@@ -28,7 +28,7 @@
     <span ttEllipsis>{{ column.cell_action_label(row) }}</span>
     <button *ngIf="column.cell_text_action_show(row)" mat-icon-button [color]="column.cell_action(row).color"
       type="button" (click)="column.cell_action(row).action(row)"
-      [appTooltip]="!!column.cell_action(row).tooltip && column.cell_action(row).tooltip(row)" class="actionCell">
+      [matTooltip]="!!column.cell_action(row).tooltip && column.cell_action(row).tooltip(row)" class="actionCell">
       <mat-icon [fontSet]="column.cell_action(row).icon.split(' ')[0]"
         [fontIcon]="column.cell_action(row).icon.split(' ')[1]"></mat-icon>
     </button>

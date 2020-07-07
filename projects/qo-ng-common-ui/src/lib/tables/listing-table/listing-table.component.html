@@ -33,7 +33,7 @@
                                 <button *ngIf="!action.custom" mat-icon-button [color]="action.color" type="button" (click)="action.action(row)">
                                     <mat-icon>{{action.icon}}</mat-icon>
                                 </button>
-                                <button *ngIf="!!action.custom" [class.mat-flat-button]="!!action.custom(row).name" type="button" mat-icon-button [class.mat-icon-button]="!action.custom(row).name" [color]="action.custom(row).color" (click)="action.action(row)" [appTooltip]="action.custom(row).tooltip">
+                                <button *ngIf="!!action.custom" [class.mat-flat-button]="!!action.custom(row).name" type="button" mat-icon-button [class.mat-icon-button]="!action.custom(row).name" [color]="action.custom(row).color" (click)="action.action(row)" [matTooltip]="action.custom(row).tooltip">
                                     <span *ngIf="!!action.custom(row).name">{{action.custom(row).name}}</span>
                                     <mat-icon>{{action.custom(row).icon}}</mat-icon>
                                 </button>
