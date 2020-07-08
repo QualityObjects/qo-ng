@@ -25,10 +25,10 @@ export class AppTooltipDirective implements OnInit, OnDestroy {
   show() { 
   // Create tooltip portal
     if (!!this.text && !this.ttDisable) {
-      const tooltipPortal = new ComponentPortal(AppTooltipComponent);
+      const tooltipPortal = new ComponentPortal(QOTooltipComponent);
 
       // Attach tooltip portal to overlay
-      const tooltipRef: ComponentRef<AppTooltipComponent> = this.overlayRef.attach(tooltipPortal);
+      const tooltipRef: ComponentRef<QOTooltipComponent> = this.overlayRef.attach(tooltipPortal);
         
       // Pass content to tooltip component instance
       tooltipRef.instance.text = this.text;   
@@ -89,10 +89,10 @@ export class AppTooltipDirective implements OnInit, OnDestroy {
 
 @Component({
   selector: 'app-tooltip',
-  templateUrl: './app-tooltip.component.html',
-  styleUrls: ['./app-tooltip.component.scss']
+  templateUrl: './qo-tooltip.component.html',
+  styleUrls: ['./qo-tooltip.component.scss']
 })
-export class AppTooltipComponent {
+export class QOTooltipComponent {
   @Input() text : string = '';
   public orientation = 'top';
   public showShadow : boolean = false;

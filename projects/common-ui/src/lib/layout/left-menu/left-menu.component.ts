@@ -2,7 +2,6 @@ import { animate, state, style, transition, trigger } from '@angular/animations'
 import { Location } from '@angular/common';
 import { Component, Input, OnInit, OnDestroy } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
-import { BusService } from '../common/bus';
 import { Subscription } from 'rxjs';
 import { MatSidenav } from '@angular/material/sidenav';
 
@@ -41,7 +40,6 @@ export class LeftMenuComponent implements OnInit, OnDestroy {
   @Input('sidemenu') public sidemenu : MatSidenav;
 
   constructor(private location: Location, 
-              private busService: BusService,
               private router: Router) {
   }
   private subscriptions : Subscription = new Subscription();

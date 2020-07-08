@@ -30,35 +30,13 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { RouterModule } from '@angular/router';
-import { AppTooltipEllipsisDirective } from './app-tooltip/app-tooltip-ellipsis.directive';
-import { AppTooltipComponent, AppTooltipDirective } from './app-tooltip/app-tooltip.component';
-import { ConfirmDialog3OptionsComponent } from './confirm-dialog-3options/confirm-dialog-3options.component';
-import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
-import { DatePickerComponent } from './datepicker/datepicker.component';
-import { FormHeaderComponent } from './form-header/form-header.component';
-import { HeadTableComponent } from './head-table/head-table.component';
-import { LeftMenuComponent } from './left-menu/left-menu.component';
-import { ListingTableComponent } from './tables/listing-table/listing-table.component';
-import { PagedTableComponent } from './tables/paged-table/paged-table.component';
-import { DragDropDirective } from './upload-file-dnd/drag-drop.directive';
-import { UploadFileComponent } from './upload-file-dnd/upload-file-dnd.component';
+import { DragDropDirective } from './drag-drop.directive';
+import { UploadFileComponent } from '../inputs/file-upload/upload-file-dnd.component';
 
 
 @NgModule({
   declarations: [
-    ConfirmDialogComponent,
-    ConfirmDialog3OptionsComponent,
-    HeadTableComponent,
-    LeftMenuComponent,
-    ListingTableComponent,
-    PagedTableComponent,
-    FormHeaderComponent,
-    DatePickerComponent,
-    AppTooltipComponent,
-    AppTooltipDirective,
-    AppTooltipEllipsisDirective,
     DragDropDirective,
-    UploadFileComponent,
 
   ],
   imports: [
@@ -97,25 +75,11 @@ import { UploadFileComponent } from './upload-file-dnd/upload-file-dnd.component
     FlexLayoutModule
     ],
     entryComponents: [
-      ConfirmDialogComponent,
-      ConfirmDialog3OptionsComponent
     ],
   exports: [
-    LeftMenuComponent,
-    HeadTableComponent,
-    ConfirmDialogComponent,
-    ConfirmDialog3OptionsComponent,
-    PagedTableComponent,
-    ListingTableComponent,
-    DatePickerComponent,
-    FormHeaderComponent,
-    AppTooltipComponent,
-    AppTooltipDirective,
-    AppTooltipEllipsisDirective,
     DragDropDirective,
-    UploadFileComponent,
    ],
   providers: [
 ]
 })
-export class QOSharedModule { }
+export class DragAndDropModule { }

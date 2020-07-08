@@ -1,8 +1,8 @@
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { merge, Subscription } from 'rxjs';
-import { TableColumnDef, RowActions, STEPS_COLUMNS } from '../tables-common';
-import { DataSourceBase } from '../../common/pagination-utils';
-import { PaginationDataRequest, FilterObject } from '../../common/pagination';
+import { TableColumnDef, RowActions } from '../tables-common';
+import { DataSourceBase } from '../common-tables/pagination-utils';
+import { PaginationDataRequest, FilterObject } from '../common-tables/pagination';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 

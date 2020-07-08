@@ -1,7 +1,7 @@
 import { OnInit, Directive, HostListener, ComponentRef, ElementRef } from '@angular/core';
 import { OverlayRef, Overlay, OverlayPositionBuilder, ConnectedPosition } from '@angular/cdk/overlay';
 import { ComponentPortal } from '@angular/cdk/portal';
-import { AppTooltipComponent } from './app-tooltip.component';
+import { QOTooltipComponent } from './qo-tooltip.component';
 
 
 @Directive({ selector: '[ttEllipsis]',
@@ -22,10 +22,10 @@ export class AppTooltipEllipsisDirective implements OnInit {
     if(element.offsetWidth < element.scrollWidth){
       let text = element.innerHTML;
     // Create tooltip portal
-      const tooltipPortal = new ComponentPortal(AppTooltipComponent);
+      const tooltipPortal = new ComponentPortal(QOTooltipComponent);
 
       // Attach tooltip portal to overlay
-      const tooltipRef: ComponentRef<AppTooltipComponent> = this.overlayRef.attach(tooltipPortal);
+      const tooltipRef: ComponentRef<QOTooltipComponent> = this.overlayRef.attach(tooltipPortal);
         
       // Pass content to tooltip component instance
       tooltipRef.instance.text = text;   
