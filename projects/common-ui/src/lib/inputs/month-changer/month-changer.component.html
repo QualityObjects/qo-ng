@@ -1,0 +1,24 @@
+<div fxLayout="row" fxLayoutAlign="left center">
+    <button mat-icon-button class="row-button" type="button" (click)="goPreviousMonth()" [disabled]="!hideCalendar">
+        <mat-icon fontSet="fa" fontIcon="fa-arrow-circle-left"></mat-icon>
+    </button>
+    <!--    <mat-form-field appearance="none" fxLayout="row" fxLayoutGap="20px" fxLayoutAlign="space-between center"> -->
+    <div class="input-container" fxFlex>
+        <div fxLayoutAlign="space-between strech" fxLayout="row" fxFill>
+            <!--           <input class="input-toggle" matInput [value]="" readonly="true"  fxflex > -->
+            <a class="month-value" mat-button (click)="picker.open()" fxFlex
+            [style.text-align]="allowEmptyValue ? 'left' : 'center'">{{dateValueMonth}}</a>
+            <button *ngIf="hideCalendar && allowEmptyValue" class="icon-toggle" mat-button mat-icon-button (click)="clearFilter()">
+                <mat-icon fontSet="fas" fontIcon="fa-times"></mat-icon>
+            </button>
+            <mat-datepicker color="accent" #picker [startView]="startView" (monthSelected)="chosenMonthHandler($event, picker)">
+            </mat-datepicker>
+            <input matInput [matDatepicker]="picker" class="date-input" readonly>
+            <mat-datepicker-toggle *ngIf="!hideCalendar" [for]="picker"></mat-datepicker-toggle>
+        </div>
+    </div>
+    <!--    </mat-form-field> -->
+    <button mat-icon-button class="row-button" type="button" (click)="goNextMonth()" [disabled]="!hideCalendar">
+        <mat-icon fontSet="fa" fontIcon="fa-arrow-circle-right"></mat-icon>
+    </button>
+</div>

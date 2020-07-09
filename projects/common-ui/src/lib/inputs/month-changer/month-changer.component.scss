@@ -1,0 +1,55 @@
+.month-value {
+    min-width: 9rem;
+    max-width: 9rem;
+    line-height: 24px;
+    padding: 2px 0.5rem 0 0.5rem;
+    vertical-align: baseline;
+    text-align: left;
+    border-radius: 4px;
+}
+
+.input-calendar {
+    text-align: end !important;
+}
+
+.date-input {
+    opacity: 0;
+    position: absolute;
+    width: 0;
+    height: 0;
+    visibility: hidden;
+}
+
+mat-datepicker-toggle ::ng-deep button.mat-icon-button,
+button.mat-icon-button {
+    width: 24px;
+    height: 24px;
+    font-size: 24px;
+    line-height: 24px;
+    .mat-icon {
+        line-height: 24px;
+        width: 24px;
+        height: 24px;
+    }
+}
+
+.icon-toggle {
+    color: rgb(131, 131, 131);
+    &:hover {
+        color: rgb(87, 87, 87);
+    }
+    .mat-icon {
+        font-size: 14px;
+        line-height: 14px;
+        width: 14px;
+        height: 14px;
+    }
+}
+
+.row-button {
+    color: rgb(131, 131, 131);
+    line-height: 10px !important;
+    &:hover {
+        color: rgb(87, 87, 87);
+    }
+}

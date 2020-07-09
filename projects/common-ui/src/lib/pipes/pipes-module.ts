@@ -30,21 +30,23 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { RouterModule } from '@angular/router';
-import { DatePickerComponent } from './datepicker/datepicker.component';
-import { UploadFileComponent } from './file-upload/upload-file-dnd.component';
-import { DragAndDropModule } from '../upload-file-dnd/drag-and-drop-module';
-import { MontChangerComponent } from './month-changer/month-changer.component';
+import { FileSizePipe } from './filesize-pipe';
+import { CapitalizePipe } from './capitalize-pipe';
+import { DirectHTMLDirective } from './safe-html-pipe';
+import { FilterPipe } from './filter-pipe';
 
 
 @NgModule({
   declarations: [
-    DatePickerComponent,
-    UploadFileComponent,
-    MontChangerComponent,
+    CapitalizePipe,
+    FileSizePipe,
+    DirectHTMLDirective,
+    FilterPipe
+
   ],
   imports: [
+    
     RouterModule,
-    DragAndDropModule,
     CommonModule,
     CdkAccordionModule,
     MatSidenavModule,
@@ -81,11 +83,12 @@ import { MontChangerComponent } from './month-changer/month-changer.component';
     entryComponents: [
     ],
   exports: [
-    DatePickerComponent,
-    MontChangerComponent,
-    UploadFileComponent
+    CapitalizePipe,
+    FileSizePipe,
+    DirectHTMLDirective,
+    FilterPipe
    ],
   providers: [
 ]
 })
-export class QOCommonInputsModule { }
+export class QOCommonPipesModule { }

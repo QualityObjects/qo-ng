@@ -36,6 +36,7 @@ import { QOTablesModule } from './tables/tables-module';
 import { QOToolTipModule } from './qo-tooltip/qo-tooltip-module';
 import { QOCommonDialogsModule } from './dialog/qo-common-dialog-module';
 import { QOLayoutModule } from './layout/qo-layout-module';
+import { QOCommonPipesModule } from './pipes/pipes-module';
 
 
 @NgModule({
@@ -44,6 +45,7 @@ import { QOLayoutModule } from './layout/qo-layout-module';
 
   ],
   imports: [
+    QOCommonPipesModule,
     QOCommonInputsModule,
     DragAndDropModule,
     QOTablesModule,
@@ -87,6 +89,7 @@ import { QOLayoutModule } from './layout/qo-layout-module';
     entryComponents: [
     ],
   exports: [
+    QOCommonPipesModule,
     QOCommonInputsModule,
     DragAndDropModule,
     QOTablesModule,
