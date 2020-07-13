@@ -154,6 +154,7 @@ export class TheTableComponent implements OnInit {
    */
   @Input('filter')
   public filter: FilterObject = {};
+  private previousFilter: FilterObject = {};
 
   /**
    * Inital sort field/s based on columnDef ID.
@@ -379,7 +380,10 @@ export class TheTableComponent implements OnInit {
    * Only for paged tables
    */
   refresh() {
-    this.paginator.pageIndex = 0;
+    if(this.previousFilter != this.filter) {
+      this.paginator.pageIndex = 0;
+      this.previousFilter = this.filter;
+     }
     this.loadPage();
   }
 

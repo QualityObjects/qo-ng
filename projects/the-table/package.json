@@ -1,6 +1,6 @@
 {
-    "name": "the-table",
-    "version": "0.0.1",
+    "name": "@qo-ng/the-table",
+    "version": "1.0.1",
     "peerDependencies": {
         "@angular/animations": "^9.1.11",
         "@angular/common": "^9.1.11",

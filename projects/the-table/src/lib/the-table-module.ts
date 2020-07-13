@@ -31,7 +31,6 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { RouterModule } from '@angular/router';
-import { HeadTableComponent } from './head-table/head-table.component';
 import { TableCellComponent } from './the-table/table-cell/table-cell.component';
 import { TheTableComponent } from './the-table/the-table.component';
 
@@ -40,9 +39,9 @@ import { TheTableComponent } from './the-table/the-table.component';
   declarations: [
     TheTableComponent,
     TableCellComponent,
-    HeadTableComponent,    
   ],
   imports: [
+    
     RouterModule,
     CommonModule,
     CdkAccordionModule,
@@ -79,8 +78,9 @@ import { TheTableComponent } from './the-table/the-table.component';
     FlexLayoutModule
     ],
   exports: [
+
     TheTableComponent,
-    HeadTableComponent,
+    TableCellComponent,
     
    ],
   providers: [

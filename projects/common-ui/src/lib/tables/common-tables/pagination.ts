@@ -32,6 +32,12 @@ export class PaginationDataRequest {
 export class PageData<T> {
     content: T[];
     total: number;
+    page_params: {
+        pageSize: number;
+        page:  number;
+        sortDirection?: 'ASC' | 'DESC';
+        sortFields?: string[];
+    };
 
     constructor(content = [], total = 0) {
         this.content = content;

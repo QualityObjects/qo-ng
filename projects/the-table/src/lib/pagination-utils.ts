@@ -2,7 +2,11 @@ import { CollectionViewer } from '@angular/cdk/collections';
 import { DataSource } from '@angular/cdk/table';
 import { BehaviorSubject, Observable, of, ReplaySubject } from 'rxjs';
 import { catchError, finalize, tap } from 'rxjs/operators';
-import { IPaginationService, PageData, PaginationDataRequest } from './pagination';
+import { IPaginationService, PaginationDataRequest, PageData } from './pagination';
+
+
+
+
 
 
 export class DataSourceBase<T> implements DataSource<T> {
@@ -55,12 +59,12 @@ export class DataSourceBase<T> implements DataSource<T> {
         this.paginationService.getPage(pagReq).pipe(
             catchError(() => of(new PageData())),
             tap((pData: PageData<T>) => {
-                this.totalSubject.next(pData?.pageData?.totalElements);
+                this.totalSubject.next(pData?.total);
             }),
             finalize(() => this.loadingSubject.next(false))
         ).subscribe((pageData: PageData<T>) => {
-            this.dataSubject.next(pageData.data);
-            this.is_empty = !pageData.data || !pageData.data.length;
+            this.dataSubject.next(pageData.content);
+            this.is_empty = !pageData.content || !pageData.content.length;
         });
     }
 

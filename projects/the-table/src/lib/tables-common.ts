@@ -48,15 +48,16 @@ export class TableColumnDef<T> {
 
 export class RowActions<T> {
   icon?: string;
-  expandedIcon?: string;
   name?: string;
   color?: string = "primary";
   tooltip?: (row: T) => string;
-  detailTemplate?: TemplateRef<any>;
-  show?: (row: T) => boolean;
+  expandedIcon?: string;
   custom?: (row: T) => RowActions<T>;
   action?: (row: T) => void;
   href?: (row: T) => string;
+  detailTemplate?: TemplateRef<any>;
+  show?: (row: T) => boolean;
+  badgeNumber ?: (row: T) =>  number;
 }
 
 export class DnDRowAction<T> {

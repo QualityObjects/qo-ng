@@ -1,52 +1,46 @@
 <div class="table-container">
-  <mat-table [dataSource]="dataSource" matSort matSortDisableClear="true" multiTemplateDataRows [ngClass]="tableClass">
-    <ng-container *ngIf="hasCheckboxColumn()">
-      <ng-container matColumnDef="checkbox">
-        <mat-header-cell *matHeaderCellDef fxFlex="5" class="mat-header-actions" mat-sort-header [disabled]="true">
-        </mat-header-cell>
-        <mat-cell *cdkCellDef="let row;" fxFlex="5" fxLayout="row" fxLayoutAlign="center center">
-          <mat-checkbox *ngIf="!rowSelectable || rowSelectable(row)" [checked]="selectionModel.isSelected(row)"
-            (change)="selectionModel.toggle(row)">
-          </mat-checkbox>
-        </mat-cell>
-      </ng-container>
-    </ng-container>
+    <mat-table [dataSource]="dataSource" matSort matSortDisableClear="true" multiTemplateDataRows [ngClass]="tableClass">
+        <ng-container *ngIf="hasCheckboxColumn()">
+            <ng-container matColumnDef="checkbox">
+                <mat-header-cell *matHeaderCellDef fxFlex="5" class="mat-header-actions" mat-sort-header [disabled]="true">
+                </mat-header-cell>
+                <mat-cell *cdkCellDef="let row;" fxFlex="5" fxLayout="row" fxLayoutAlign="center center">
+                    <mat-checkbox *ngIf="!rowSelectable || rowSelectable(row)" [checked]="selectionModel.isSelected(row)" (change)="selectionModel.toggle(row)">
+                    </mat-checkbox>
+                </mat-cell>
+            </ng-container>
+        </ng-container>
 
-    <ng-container *ngFor="let column of columns" [matColumnDef]="column.columnDef">
-      <mat-header-cell [fxFlex]="getColumnWidth(column.flex || 0)" *matHeaderCellDef mat-sort-header
-        [disabled]="!column.sortable">
-        <span ttEllipsis>{{ column.header }}</span>
-      </mat-header-cell>
-      <mat-cell [fxFlex]="getColumnWidth(column.flex || 0)" fxLayout="row"
-        [fxLayoutAlign]="(!!column.align ? column.align : 'start') + ' center'" *cdkCellDef="let row;"
-        class="{{column.get_color && column.get_color(row) || ''}}" [class.slider]="!!column.cell_slider">
+        <ng-container *ngFor="let column of columns" [matColumnDef]="column.columnDef">
+            <mat-header-cell [fxFlex]="getColumnWidth(column.flex || 0)" *matHeaderCellDef mat-sort-header [disabled]="!column.sortable">
+                <span ttEllipsis>{{ column.header }}</span>
+            </mat-header-cell>
+            <mat-cell [fxFlex]="getColumnWidth(column.flex || 0)" fxLayout="row" [fxLayoutAlign]="(!!column.align ? column.align : 'start') + ' center'" *cdkCellDef="let row;" class="{{column.get_color && column.get_color(row) || ''}}" [class.slider]="!!column.cell_slider">
 
-        <table-cell [row]="row" [column]="column"></table-cell>
+                <table-cell [row]="row" [column]="column"></table-cell>
 
-      </mat-cell>
-    </ng-container>
-    <ng-container matColumnDef="actions">
-      <mat-header-cell [fxFlex]="actionsColFlex || ''" *matHeaderCellDef mat-sort-header [disabled]="true"
-        class="mat-header-actions">
-        <div *ngIf="!!headerAction" fxLayout="row" fxLayoutGap="5px" fxLayoutAlign="center" fxFill>
-          <ng-container *ngIf="!!headerAction?.show">
-            <ng-container *ngIf="!!headerAction?.action">
-              <button mat-icon-button [color]="headerAction?.color" type="button" (click)="headerAction.action()">
+            </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="actions">
+            <mat-header-cell [fxFlex]="actionsColFlex || ''" *matHeaderCellDef mat-sort-header [disabled]="true" class="mat-header-actions">
+                <div *ngIf="!!headerAction" fxLayout="row" fxLayoutGap="5px" fxLayoutAlign="center" fxFill>
+                    <ng-container *ngIf="!!headerAction?.show">
+                        <ng-container *ngIf="!!headerAction?.action">
+                            <button mat-icon-button [color]="headerAction?.color" type="button" (click)="headerAction.action()">
                 <mat-icon [fontSet]="headerAction?.icon.split(' ')[0]" [fontIcon]="headerAction?.icon.split(' ')[1]"
                   [matTooltip]="headerAction.tooltip">
                 </mat-icon>
               </button>
-            </ng-container>
-          </ng-container>
-        </div>
-      </mat-header-cell>
-      <mat-cell [fxFlex]="actionsColFlex || ''" *cdkCellDef="let row">
-        <div fxLayout="row" fxLayoutGap="5px" fxLayoutAlign="center" fxFill>
-          <ng-container *ngFor="let action of actions">
-            <ng-container *ngIf="(!action.show || action.show(row))">
-              <ng-container *ngIf="!!action.detailTemplate">
-                <button mat-icon-button [color]="action.color || ''" type="button" [matTooltip]="action.tooltip(row)"
-                  (click)="toggleDetailRow(row, action)">
+                        </ng-container>
+                    </ng-container>
+                </div>
+            </mat-header-cell>
+            <mat-cell [fxFlex]="actionsColFlex || ''" *cdkCellDef="let row">
+                <div fxLayout="row" fxLayoutGap="5px" fxLayoutAlign="center" fxFill>
+                    <ng-container *ngFor="let action of actions">
+                        <ng-container *ngIf="(!action.show || action.show(row))">
+                            <ng-container *ngIf="!!action.detailTemplate">
+                                <button mat-icon-button [color]="action.color || ''" type="button" [matTooltip]="action.tooltip(row)" (click)="toggleDetailRow(row, action)">
                   <ng-container *ngIf="!action.icon">
                     <mat-icon fontSet="fa" fontIcon="fa-chevron-double-down"
                       [@toggleIcon]="isActionExpanded(row, action) ? 'expanded' : 'collapsed'"></mat-icon>
@@ -56,55 +50,48 @@
                       [@toggleIcons]="isActionExpanded(row, action) ? 'expanded' : 'collapsed'"></mat-icon>
                   </ng-container>
                 </button>
-              </ng-container>
-              <ng-container *ngIf=" !!action.action">
-                <button *ngIf="!action.custom" mat-icon-button [color]="action.color || ''" type="button"
-                  [matTooltip]="!!action.tooltip && action.tooltip(row)" (click)="action.action(row)">
-                  <mat-icon [fontSet]="action.icon.split(' ')[0]" [fontIcon]="action.icon.split(' ')[1]">
+                            </ng-container>
+                            <ng-container *ngIf=" !!action.action">
+                                <button *ngIf="!action.custom" mat-icon-button [color]="action.color || ''" type="button" [matTooltip]="!!action.tooltip && action.tooltip(row)" (click)="action.action(row)">
+                  <mat-icon [fontSet]="action.icon.split(' ')[0]" [fontIcon]="action.icon.split(' ')[1]" [matBadge]="!!action.badgeNumber && action.badgeNumber(row)" [matBadgeHidden]="!(!!action.badgeNumber && action.badgeNumber(row)>0)" matBadgeSize="small">
                   </mat-icon>
                 </button>
-                <button *ngIf="!!action.custom" [class.mat-flat-button]="!!action.custom(row).name" mat-icon-button
-                  [class.mat-icon-button]="!action.custom(row).name" type="button" [color]="action.custom(row).color"
-                  (click)="action.action(row)" [matTooltip]="action.custom(row).tooltip(row)">
+                                <button *ngIf="!!action.custom" [class.mat-flat-button]="!!action.custom(row).name" mat-icon-button [class.mat-icon-button]="!action.custom(row).name" type="button" [color]="action.custom(row).color" (click)="action.action(row)" [matTooltip]="action.custom(row).tooltip(row)">
                   <span *ngIf="!!action.custom(row).name">{{action.custom(row).name}}</span>
                   <mat-icon [fontSet]="action.custom(row).icon.split(' ')[0]"
-                    [fontIcon]="action.custom(row).icon.split(' ')[1]"></mat-icon>
+                    [fontIcon]="action.custom(row).icon.split(' ')[1]"  [matBadge]="!!action.badgeNumber && action.badgeNumber(row)" [matBadgeHidden]="!(!!action.badgeNumber && action.badgeNumber(row)>0)" matBadgeSize="small"></mat-icon>
                 </button>
-              </ng-container>
-              <ng-container *ngIf="!action.action && !!action.href">
-                <a mat-icon-button [color]="action.color || ''" [href]="action.href(row)" target="_blank">
-                  <span *ngIf="!!action.name">{{action.name}}</span>
-                  <mat-icon fontSet="action.icon.split(' ')[0]" [fontIcon]="action.icon.split(' ')[1]"></mat-icon>
-                </a>
-              </ng-container>
-            </ng-container>
-          </ng-container>
-        </div>
-      </mat-cell>
-    </ng-container>
-    <ng-container matColumnDef="expandedDetail">
-      <td mat-cell *matCellDef="let row" [attr.colspan]="visibleColumns.length">
-        <div *ngIf="row === expandedElement" [@detailExpand]>
-          <ng-container [ngTemplateOutlet]="tplToExpand"
-            [ngTemplateOutletContext]="{ row: row, collapse: collapseRef(), dropEvent: dropEvent }">
-          </ng-container>
-        </div>
-      </td>
-    </ng-container>
-    <mat-header-row *matHeaderRowDef="visibleColumns"></mat-header-row>
-    <mat-row *matRowDef="let row; let index = dataIndex; columns: visibleColumns;" [class.highlight]="highlight"
-      [class.odd]="!!(index % 2)" [attr.rob]="'hola_' + index"
-      (fileDropped)="!!dndRowAction && onRowDrop($event, row)"> <!--[drop-container]="!!dndRowAction && !dropInProgress" -->
-    </mat-row>
+                            </ng-container>
+                            <ng-container *ngIf="!action.action && !!action.href">
+                                <a mat-icon-button [color]="action.color || ''" [href]="action.href(row)" target="_blank">
+                                    <span *ngIf="!!action.name">{{action.name}}</span>
+                                    <mat-icon fontSet="action.icon.split(' ')[0]" [fontIcon]="action.icon.split(' ')[1]"></mat-icon>
+                                </a>
+                            </ng-container>
+                        </ng-container>
+                    </ng-container>
+                </div>
+            </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="expandedDetail">
+            <td mat-cell *matCellDef="let row" [attr.colspan]="visibleColumns.length">
+                <div *ngIf="row === expandedElement" [@detailExpand]>
+                    <ng-container [ngTemplateOutlet]="tplToExpand" [ngTemplateOutletContext]="{ row: row, collapse: collapseRef(), dropEvent: dropEvent }">
+                    </ng-container>
+                </div>
+            </td>
+        </ng-container>
+        <mat-header-row *matHeaderRowDef="visibleColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; let index = dataIndex; columns: visibleColumns;" [class.highlight]="highlight" [class.odd]="!!(index % 2)" [attr.rob]="'hola_' + index" (fileDropped)="!!dndRowAction && onRowDrop($event, row)">
+            <!--[drop-container]="!!dndRowAction && !dropInProgress" -->
+        </mat-row>
 
-    <mat-row *matRowDef="let row; columns: ['expandedDetail']" class="detail"></mat-row>
-  </mat-table>
-  <span fxLayoutAlign="center center" class="no-result-search" *ngIf="isEmpty()" transloco="global.no-data">No
+        <mat-row *matRowDef="let row; columns: ['expandedDetail']" class="detail"></mat-row>
+    </mat-table>
+    <span fxLayoutAlign="center center" class="no-result-search" *ngIf="isEmpty()" transloco="global.no-data">No
     existen registros</span>
 </div>
-<div [style.visibility]="pagedTable ? 'visible': 'hidden'" fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="10px"
-  class="table-footer">
-  <ng-content select="[position=footer]"></ng-content>
-  <mat-paginator [style.visibility]="pagedTable ? 'visible': 'hidden'" fxFlex [length]="pagedDs?.total | async"
-    [pageSize]="initialPageSize" [pageSizeOptions]="[10, 25, 100, 500]"></mat-paginator>
+<div [style.visibility]="pagedTable ? 'visible': 'hidden'" fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="10px" class="table-footer">
+    <ng-content select="[position=footer]"></ng-content>
+    <mat-paginator [style.visibility]="pagedTable ? 'visible': 'hidden'" fxFlex [length]="pagedDs?.total | async" [pageSize]="initialPageSize" [pageSizeOptions]="[10, 25, 100, 500]"></mat-paginator>
 </div>

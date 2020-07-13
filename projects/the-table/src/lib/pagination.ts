@@ -31,22 +31,19 @@ export class PaginationDataRequest {
 }
 
 export class PageData<T> {
-    data: T[];
+    content: T[];
     total: number;
-
-    pageData: {
-        size: number,
-        totalElements: number,
-        totalPages: number,
-        number: number
+    page_params: {
+        pageSize: number;
+        page:  number;
+        sortDirection?: 'ASC' | 'DESC';
+        sortFields?: string[];
     };
 
-
-    constructor(data = [], total = 0) {
-        this.data = data;
+    constructor(content = [], total = 0) {
+        this.content = content;
         this.total = total;
     }
-
 }
 
 export interface IPaginationService<T> {
