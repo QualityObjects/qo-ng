@@ -36,7 +36,7 @@
                 </div>
             </mat-header-cell>
             <mat-cell [fxFlex]="actionsColFlex || ''" *cdkCellDef="let row">
-                <div fxLayout="row" fxLayoutGap="5px" fxLayoutAlign="center" fxFill>
+                <div fxLayout="row" fxLayoutGap="5px" fxLayoutAlign="end center" fxFill>
                     <ng-container *ngFor="let action of actions">
                         <ng-container *ngIf="(!action.show || action.show(row))">
                             <ng-container *ngIf="!!action.detailTemplate">
