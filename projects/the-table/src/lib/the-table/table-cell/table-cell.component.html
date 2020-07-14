@@ -1,59 +1,52 @@
 <ng-container [ngTemplateOutlet]="cellTemplate" [ngTemplateOutletContext]="{ row: row, column: column }"></ng-container>
 
 <ng-template #tpl_text let-row="row" let-column="column">
-  <span ttEllipsis>{{ column.cell(row) }}</span>
+    <span ttEllipsis>{{ column.cell(row) }}</span>
 </ng-template>
 
 <ng-template #tpl_img let-row="row" let-column="column">
-  <img mat-card-avatar class="cell-image" [src]="column.cell_image(row)" alt="">
+    <img mat-card-avatar class="cell-image" [src]="column.cell_image(row)" alt="">
 </ng-template>
 
 <ng-template #tpl_icon let-row="row" let-column="column">
-  <mat-icon color="{{column.color || ''}}" [fontSet]="column.cell_icon(row).split(' ')[0]"
-    [fontIcon]="column.cell_icon(row).split(' ')[1]" [matTooltip]="!!column.cell_tooltip && column.cell_tooltip(row)">
-  </mat-icon>
+    <mat-icon color="{{column.color || ''}}" [fontSet]="column.cell_icon(row).split(' ')[0]" [fontIcon]="column.cell_icon(row).split(' ')[1]" [matTooltip]="!!column.cell_tooltip && column.cell_tooltip(row)">
+    </mat-icon>
 </ng-template>
 
 <ng-template #tpl_action let-row="row" let-column="column">
-  <button *ngIf="column.cell_action_show(row)" mat-icon-button [color]="column.cell_action(row).color" type="button"
-    (click)="column.cell_action(row).action(row)"
-    [matTooltip]="!!column.cell_action(row).tooltip && column.cell_action(row).tooltip(row)" class="actionCell">
+    <button *ngIf="column.cell_action_show(row)" mat-icon-button [color]="column.cell_action(row).color" type="button" (click)="column.cell_action(row).action(row)" [matTooltip]="!!column.cell_action(row).tooltip && column.cell_action(row).tooltip(row)" class="actionCell">
     <mat-icon [fontSet]="column.cell_action(row).icon.split(' ')[0]"
       [fontIcon]="column.cell_action(row).icon.split(' ')[1]"></mat-icon>
   </button>
 </ng-template>
 
 <ng-template #tpl_text_action let-row="row" let-column="column">
-  <div fxLayout="row" fxLayoutGap="4px" fxLayoutAlign="start center">
-    <span ttEllipsis>{{ column.cell_action_label(row) }}</span>
-    <button *ngIf="column.cell_text_action_show(row)" mat-icon-button [color]="column.cell_action(row).color"
-      type="button" (click)="column.cell_action(row).action(row)"
-      [matTooltip]="!!column.cell_action(row).tooltip && column.cell_action(row).tooltip(row)" class="actionCell">
+    <div fxLayout="row" fxLayoutGap="4px" fxLayoutAlign="start center">
+        <span ttEllipsis>{{ column.cell_action_label(row) }}</span>
+        <button *ngIf="column.cell_text_action_show(row)" mat-icon-button [color]="column.cell_action(row).color" type="button" (click)="column.cell_action(row).action(row)" [matTooltip]="!!column.cell_action(row).tooltip && column.cell_action(row).tooltip(row)"
+            [matTooltipDisabled]="!column.cell_action.tooltip || !column.cell_action.tooltip(row)" class="actionCell">
       <mat-icon [fontSet]="column.cell_action(row).icon.split(' ')[0]"
         [fontIcon]="column.cell_action(row).icon.split(' ')[1]"></mat-icon>
     </button>
-  </div>
+    </div>
 </ng-template>
 
 <ng-template #tpl_slider let-row="row" let-column="column">
-  <mat-slide-toggle [checked]="column.cell_slider(row)" [disabled]="column.cell_slider_disabled"
-    (change)="column.cell_slider_change($event.checked, row)">
-  </mat-slide-toggle>
+    <mat-slide-toggle [checked]="column.cell_slider(row)" [disabled]="column.cell_slider_disabled" (change)="column.cell_slider_change($event.checked, row)">
+    </mat-slide-toggle>
 </ng-template>
 
 <ng-template #tpl_chips let-row="row" let-column="column">
-  <div class="chips-container" fxLayout="row" fxLayoutGap="4px" fxLayoutAlign="start center">
-    <div class="chip" *ngFor="let chip of column.cell_chip(row)" fxLayout="row" fxLayoutGap="4px"
-      fxLayoutAlign="start center">
-      <mat-icon *ngIf="!!chip.showIcon" [style.color]="chip.iconColor" [fontSet]="chip.fontSet || 'fas'"
-        [fontIcon]="chip.fontIcon || 'fa-circle'">
-      </mat-icon>
-      <span>{{chip.text}}</span>
+    <div class="chips-container" fxLayout="row" fxLayoutGap="4px" fxLayoutAlign="start center">
+        <div class="chip" *ngFor="let chip of column.cell_chip(row)" fxLayout="row" fxLayoutGap="4px" fxLayoutAlign="start center">
+            <mat-icon *ngIf="!!chip.showIcon" [style.color]="chip.iconColor" [fontSet]="chip.fontSet || 'fas'" [fontIcon]="chip.fontIcon || 'fa-circle'">
+            </mat-icon>
+            <span>{{chip.text}}</span>
+        </div>
     </div>
-  </div>
 </ng-template>
 
 <ng-template #tpl_custom let-row="row" let-column="column">
-  <ng-container [ngTemplateOutlet]="column.templateRef" [ngTemplateOutletContext]="{ row: row, column: column }">
-  </ng-container>
+    <ng-container [ngTemplateOutlet]="column.templateRef" [ngTemplateOutletContext]="{ row: row, column: column }">
+    </ng-container>
 </ng-template>

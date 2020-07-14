@@ -40,7 +40,7 @@
                     <ng-container *ngFor="let action of actions">
                         <ng-container *ngIf="(!action.show || action.show(row))">
                             <ng-container *ngIf="!!action.detailTemplate">
-                                <button mat-icon-button [color]="action.color || ''" type="button" [matTooltip]="action.tooltip(row)" (click)="toggleDetailRow(row, action)">
+                                <button mat-icon-button [color]="action.color || ''" type="button" [matTooltipDisabled]="!action.tooltip || !action.tooltip(row)" [matTooltip]="!!action.tooltip && action.tooltip(row)" (click)="toggleDetailRow(row, action)">
                   <ng-container *ngIf="!action.icon">
                     <mat-icon fontSet="fa" fontIcon="fa-chevron-double-down"
                       [@toggleIcon]="isActionExpanded(row, action) ? 'expanded' : 'collapsed'"></mat-icon>
@@ -52,7 +52,7 @@
                 </button>
                             </ng-container>
                             <ng-container *ngIf=" !!action.action">
-                                <button *ngIf="!action.custom" mat-icon-button [color]="action.color || ''" type="button" [matTooltip]="!!action.tooltip && action.tooltip(row)" (click)="action.action(row)">
+                                <button *ngIf="!action.custom" mat-icon-button [color]="action.color || ''" type="button" [matTooltipDisabled]="!action.tooltip || !action.tooltip(row)" [matTooltip]="!!action.tooltip && action.tooltip(row)" (click)="action.action(row)">
                   <mat-icon [fontSet]="action.icon.split(' ')[0]" [fontIcon]="action.icon.split(' ')[1]" [matBadge]="!!action.badgeNumber && action.badgeNumber(row)" [matBadgeHidden]="!(!!action.badgeNumber && action.badgeNumber(row)>0)" matBadgeSize="small">
                   </mat-icon>
                 </button>
