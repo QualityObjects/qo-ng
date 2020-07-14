@@ -1,7 +1,8 @@
 <ng-container [ngTemplateOutlet]="cellTemplate" [ngTemplateOutletContext]="{ row: row, column: column }"></ng-container>
 
 <ng-template #tpl_text let-row="row" let-column="column">
-    <span ttEllipsis>{{ column.cell(row) }}</span>
+    <span ttEllipsis *ngIf="!column?.cell_action">{{ column.cell(row) }}</span>
+    <span [class.clickable]="!!column?.cell_action" (click)="!!column.cell_action && column.cell_action(row).action(row)" *ngIf="!!column?.cell_action" [matTooltip]="!!column.cell_tooltip && column.cell_tooltip(row)" [matTooltipDisabled]="!column.cell_tooltip || !column.cell_tooltip(row)">{{ column.cell(row) }}</span>
 </ng-template>
 
 <ng-template #tpl_img let-row="row" let-column="column">
