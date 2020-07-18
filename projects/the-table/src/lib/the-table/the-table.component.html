@@ -65,9 +65,10 @@
                             <ng-container *ngIf="!action.action && !!action.href">
                                 <a mat-icon-button [color]="action.color || ''" [href]="action.href(row)" target="_blank">
                                     <span *ngIf="!!action.name">{{action.name}}</span>
-                                    <mat-icon fontSet="action.icon.split(' ')[0]" [fontIcon]="action.icon.split(' ')[1]"></mat-icon>
+                                    <mat-icon [fontSet]="action.icon.split(' ')[0]" [fontIcon]="action.icon.split(' ')[1]"></mat-icon>
                                 </a>
                             </ng-container>
+
                         </ng-container>
                     </ng-container>
                 </div>
