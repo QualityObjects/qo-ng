@@ -15,7 +15,7 @@
             <mat-header-cell [fxFlex]="getColumnWidth(column.flex || 0)" *matHeaderCellDef mat-sort-header [disabled]="!column.sortable">
                 <span ttEllipsis>{{ column.header }}</span>
             </mat-header-cell>
-            <mat-cell [fxFlex]="getColumnWidth(column.flex || 0)" fxLayout="row" [fxLayoutAlign]="(!!column.align ? column.align : 'start') + ' center'" *cdkCellDef="let row;" class="{{column.get_color && column.get_color(row) || ''}}" [class.slider]="!!column.cell_slider">
+            <mat-cell [fxFlex]="getColumnWidth(column.flex || 0)" fxLayout="row" [fxLayoutAlign]="(!!column.align ? column.align : 'start') + ' center'" *cdkCellDef="let row;" [class]="column.custom_css && column.custom_css(row) || ''" [class.slider]="!!column.cell_slider">
 
                 <table-cell [row]="row" [column]="column"></table-cell>
 

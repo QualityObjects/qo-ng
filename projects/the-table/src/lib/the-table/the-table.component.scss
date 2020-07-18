@@ -170,9 +170,7 @@ mat-table {
 }
 
 .deleted {
-    font-weight: 100 !important;
-    color: red($color: #000000) !important;
-    background-color: #bcd8fd !important;
+    opacity: 0.2 !important;
 }
 
 .no-result-search {
