@@ -44,6 +44,7 @@ export class TableColumnDef<T> {
   cell_action_label?: (row: T) => string;
   cell_action?: (row: any) => RowActions<any>;
   cell_chip?: (row: T) => ChipInfo[];
+  custom_css?: (row: T) => string;
 }
 
 export class RowActions<T> {

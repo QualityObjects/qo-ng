@@ -21,7 +21,7 @@
 
             </mat-cell>
         </ng-container>
-        <ng-container matColumnDef="actions">
+        <ng-container matColumnDef="actions" stickyEnd>
             <mat-header-cell [fxFlex]="actionsColFlex || ''" *matHeaderCellDef mat-sort-header [disabled]="true" class="mat-header-actions">
                 <div *ngIf="!!headerAction" fxLayout="row" fxLayoutGap="5px" fxLayoutAlign="center" fxFill>
                     <ng-container *ngIf="!!headerAction?.show">
