@@ -10,6 +10,8 @@
 
 .mat-table ::ng-deep {
     .mat-row {
+        display: inline-flex;
+        min-width: 1200px;
         border: none;
         min-height: unset;
         align-items: stretch;
@@ -43,6 +45,7 @@
     }
     .mat-header-row,
     .mat-header-cell {
+        display: inline-flex;
         max-height: 36px;
         min-height: 45px;
         width: 100%;
@@ -53,6 +56,9 @@
                 max-width: calc(100% - 18px);
             }
         }
+    }
+    .mat-header-row {
+        min-width: 1200px;
     }
     .mat-header-cell:first-of-type {
         padding-left: 0px;

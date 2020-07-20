@@ -23,7 +23,7 @@
         </ng-container>
         <ng-container matColumnDef="actions" stickyEnd>
             <mat-header-cell [fxFlex]="actionsColFlex || ''" *matHeaderCellDef mat-sort-header [disabled]="true" class="mat-header-actions">
-                <div *ngIf="!!headerAction" fxLayout="row" fxLayoutGap="5px" fxLayoutAlign="center" fxFill>
+                <div *ngIf="!!headerAction" fxLayout="row" fxLayoutGap="2px" fxLayoutAlign="center" fxFill>
                     <ng-container *ngIf="!!headerAction?.show">
                         <ng-container *ngIf="!!headerAction?.action">
                             <button mat-icon-button [color]="headerAction?.color" type="button" (click)="headerAction.action()">
@@ -36,7 +36,7 @@
                 </div>
             </mat-header-cell>
             <mat-cell [fxFlex]="actionsColFlex || ''" *cdkCellDef="let row">
-                <div fxLayout="row" fxLayoutGap="5px" fxLayoutAlign="end center" fxFill>
+                <div fxLayout="row" fxLayoutGap="0px" fxLayoutAlign="end center" fxFill>
                     <ng-container *ngFor="let action of actions">
                         <ng-container *ngIf="(!action.show || action.show(row))">
                             <ng-container *ngIf="!!action.detailTemplate">
