@@ -9,7 +9,7 @@
 
 <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="10px" class="title-container">
     <mat-icon *ngIf="!!icon" fontSet="fa" [matTooltip]="iconTooltip" [fontIcon]="icon" class="icon-title"></mat-icon>
-    <img mat-card-avatar class="cell-image" [src]="avatar" alt="" style="width: 35px;height: 35px;">
+    <img mat-card-avatar *ngIf="!!avatar" class="cell-image" [src]="avatar" alt="" style="width: 35px;height: 35px;">
     <h1 fxFlex class="main-title">{{title }}</h1>
     <div fxFlex="40" fxLayout="row wrap" fxLayoutAlign="end end" class="buttons" fxLayoutGap="5px">
         <ng-content></ng-content>

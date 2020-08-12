@@ -9,7 +9,7 @@ export class FormHeaderComponent implements OnInit {
   
   @Input('title') public title: string;
   @Input('previousPageName') public previousPage: string;
-  @Input() public avatar: string; 
+  @Input() public avatar: string=null; 
   @Output('onBack') public onBack = new EventEmitter<any>();
   @Input('icon') public icon: string;
   @Input('iconTooltip') public iconTooltip: string;
