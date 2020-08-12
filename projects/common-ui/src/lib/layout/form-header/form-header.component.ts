@@ -8,7 +8,8 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 export class FormHeaderComponent implements OnInit {
   
   @Input('title') public title: string;
-  @Input('previousPageName') public previousPage: string; 
+  @Input('previousPageName') public previousPage: string;
+  @Input() public avatar: string; 
   @Output('onBack') public onBack = new EventEmitter<any>();
   @Input('icon') public icon: string;
   @Input('iconTooltip') public iconTooltip: string;
