@@ -77,6 +77,10 @@ export class TheTableComponent implements OnInit {
   @Input('actions')
   public actions: RowActions<any>[];
 
+  public getShowColapseMenu(info: any): boolean {
+    return this.actions.filter(action => action.colapseInMenu && action.show(info)).length>0;
+  };
+
   /**
    * The width of the row actions (fxFlex)
    */

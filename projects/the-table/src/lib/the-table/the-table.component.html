@@ -37,6 +37,7 @@
             </mat-header-cell>
             <mat-cell [fxFlex]="actionsColFlex || ''" *cdkCellDef="let row">
                 <div fxLayout="row" fxLayoutGap="0px" fxLayoutAlign="end center" fxFill>
+
                     <ng-container *ngFor="let action of actions">
                         <ng-container *ngIf="(!action.show || action.show(row))">
                             <ng-container *ngIf="!!action.detailTemplate">
@@ -52,10 +53,13 @@
                 </button>
                             </ng-container>
                             <ng-container *ngIf=" !!action.action">
-                                <button *ngIf="!action.custom" mat-icon-button [color]="action.color || ''" type="button" [matTooltipDisabled]="!action.tooltip || !action.tooltip(row)" [matTooltip]="!!action.tooltip && action.tooltip(row)" (click)="action.action(row)">
-                  <mat-icon [fontSet]="action.icon.split(' ')[0]" [fontIcon]="action.icon.split(' ')[1]" [matBadge]="!!action.badgeNumber && action.badgeNumber(row)" [matBadgeHidden]="!(!!action.badgeNumber && action.badgeNumber(row)>0)" matBadgeSize="small">
-                  </mat-icon>
-                </button>
+
+                                <button *ngIf="!action.custom && (actions.length>=2 && !action.colapseInMenu || actions.length<2)" mat-icon-button [color]="action.color || ''" type="button" [matTooltipDisabled]="!action.tooltip || !action.tooltip(row)" [matTooltip]="!!action.tooltip && action.tooltip(row)"
+                                    (click)="action.action(row)">
+                                    <mat-icon [fontSet]="action.icon.split(' ')[0]" [fontIcon]="action.icon.split(' ')[1]" [matBadge]="!!action.badgeNumber && action.badgeNumber(row)" [matBadgeHidden]="!(!!action.badgeNumber && action.badgeNumber(row)>0)" matBadgeSize="small">
+                                     </mat-icon>
+                                </button>
+
                                 <button *ngIf="!!action.custom" [class.mat-flat-button]="!!action.custom(row).name" mat-icon-button [class.mat-icon-button]="!action.custom(row).name" type="button" [color]="action.custom(row).color" (click)="action.action(row)" [matTooltip]="action.custom(row).tooltip(row)">
                   <span *ngIf="!!action.custom(row).name">{{action.custom(row).name}}</span>
                   <mat-icon [fontSet]="action.custom(row).icon.split(' ')[0]"
@@ -71,6 +75,20 @@
 
                         </ng-container>
                     </ng-container>
+                    <div>
+                        <button mat-icon-button [matMenuTriggerFor]="actionMenu" aria-label="Example icon-button with a menu">
+                            <mat-icon fontSet="fal" fontIcon="fa-ellipsis-v"></mat-icon>
+                          </button>
+                        <mat-menu #actionMenu="matMenu">
+                            <div fxLayout="columns" *ngFor="let action of actions">
+                                <button mat-menu-item *ngIf="action.colapseInMenu" (click)="action.action(row) ">
+                                <mat-icon [fontSet]="action.icon.split( ' ')[0] "  [color]="action.color" [fontIcon]="action.icon.split( ' ')[1] " [matBadge]="!!action.badgeNumber && action.badgeNumber(row) " [matBadgeHidden]="!(!!action.badgeNumber && action.badgeNumber(row)>0)" matBadgeSize="small">
+                                 </mat-icon>
+                                </button>
+
+                            </div>
+                        </mat-menu>
+                    </div>
                 </div>
             </mat-cell>
         </ng-container>
