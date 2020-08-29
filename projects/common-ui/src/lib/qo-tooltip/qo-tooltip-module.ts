@@ -28,7 +28,7 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatTooltipModule, TooltipComponent } from '@angular/material/tooltip';
+import { MatTooltipModule } from '@angular/material/tooltip';
 import { RouterModule } from '@angular/router';
 import { AppTooltipEllipsisDirective } from './tooltip/qo-tooltip-ellipsis.directive';
 import { AppTooltipDirective, QOTooltipComponent } from './tooltip/qo-tooltip.component';
@@ -78,7 +78,7 @@ import { AppTooltipDirective, QOTooltipComponent } from './tooltip/qo-tooltip.co
     entryComponents: [
     ],
   exports: [
-    TooltipComponent,
+    QOTooltipComponent,
     AppTooltipEllipsisDirective,
     AppTooltipDirective
    ],

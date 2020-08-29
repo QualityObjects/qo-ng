@@ -7,8 +7,8 @@ import { ComponentPortal } from '@angular/cdk/portal';
 export class AppTooltipDirective implements OnInit, OnDestroy {
 
   private overlayRef: OverlayRef | null;
-  private _portal: ComponentPortal<AppTooltipComponent> | null;
-  private _tooltipInstance: AppTooltipComponent | null;
+  private _portal: ComponentPortal<QOTooltipComponent> | null;
+  private _tooltipInstance: QOTooltipComponent | null;
   /**
    * Texto a mostrar en el tooltip
    */
@@ -25,11 +25,11 @@ export class AppTooltipDirective implements OnInit, OnDestroy {
     // Create tooltip portal
     if (!!this.text) {
       this.createIfNecessaryOverlayRef();
-      this._portal = this._portal || new ComponentPortal(AppTooltipComponent, this.viewContainerRef);
+      this._portal = this._portal || new ComponentPortal(QOTooltipComponent, this.viewContainerRef);
 
       // Attach tooltip portal to overlay
       this.overlayRef.detach();
-      const tooltipRef: ComponentRef<AppTooltipComponent> = this.overlayRef.attach(this._portal);
+      const tooltipRef: ComponentRef<QOTooltipComponent> = this.overlayRef.attach(this._portal);
       this._tooltipInstance = tooltipRef.instance;
       // Pass content to tooltip component instance
       this._tooltipInstance.text = this.text;
@@ -103,11 +103,11 @@ export class AppTooltipDirective implements OnInit, OnDestroy {
 }
 
 @Component({
-  selector: 'app-tooltip',
-  templateUrl: './app-tooltip.component.html',
-  styleUrls: ['./app-tooltip.component.scss']
+  selector: 'qo-tooltip',
+  templateUrl: './qo-tooltip.component.html',
+  styleUrls: ['./qo-tooltip.component.scss']
 })
-export class AppTooltipComponent {
+export class QOTooltipComponent {
   @Input() text: string = '';
   public orientation = 'top';
   public showShadow: boolean = false;
