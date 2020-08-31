@@ -59,7 +59,7 @@ export class RowActions<T> {
   detailTemplate?: TemplateRef<any>;
   show?: (row: T) => boolean;
   badgeNumber ?: (row: T) =>  number;
-  colapseInMenu?: boolean = false;
+  collapseInMenu?: boolean = false;
 }
 
 export class DnDRowAction<T> {

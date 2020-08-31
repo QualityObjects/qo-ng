@@ -78,7 +78,7 @@ export class TheTableComponent implements OnInit {
   public actions: RowActions<any>[];
 
   public getShowColapseMenu(info: any): boolean {
-    return this.actions.filter(action => action.colapseInMenu && action.show(info)).length>0;
+    return this.actions.filter(action => action.collapseInMenu && action.show(info)).length>0;
   };
 
   /**
@@ -470,4 +470,13 @@ export class TheTableComponent implements OnInit {
     return this.visibleColumns.includes(SELECTION_COLUMN);
   }
 
+  public showMoreActionsMenu(row: any) : boolean {
+    let visible = row._cache?.showMoreActionMenu;
+    if (visible === undefined) {
+      visible = !!this.actions.find(a => a.collapseInMenu && (!a.show || a.show(row)));
+      row._cache = row._cache || {};
+      row._cache.showMoreActionMenu = visible;
+    }
+    return visible;
+  }
 }
