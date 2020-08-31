@@ -4,7 +4,7 @@ $tooltip-color: white;
 
 
 .container {
-  //grid-gap: 0px;
+  grid-gap: 0px;
   //opacity: 0.9;
   &.shadow {
     .text-container {
@@ -42,6 +42,15 @@ $tooltip-color: white;
     height: 10px;
     display: flex;
     margin: auto;
+    &.top {
+      grid-area: bottom;
+    }
+    &.bottom {
+      grid-area: top;
+      svg {
+        transform: rotate(180deg);
+      }
+    }
     &.right {
       grid-area: left;
       svg {
@@ -53,15 +62,6 @@ $tooltip-color: white;
       svg {
         transform: rotate(270deg) translate(0px, -5px);
       }
-    }
-    &.top {
-      grid-area: top;
-      svg {
-        transform: rotate(180deg);
-      }
-    }
-    &.bottom {
-      grid-area: bottom;
     }
     // drop-shadow( 3px 3px 2px rgba(0, 0, 0, .7));
     svg {

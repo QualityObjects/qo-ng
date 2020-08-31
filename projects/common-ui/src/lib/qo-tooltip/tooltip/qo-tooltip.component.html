@@ -1,4 +1,4 @@
-<div class="container" [class.shadow]="showShadow" gdGap="0" gdAreas="top top top | left center right | bottom bottom bottom">  
+<div [fxHide]="!visible" class="container" [class.shadow]="showShadow" gdGap="0" gdAreas="top top top | left center right | bottom bottom bottom">  
 
   <div class="text-container" gdArea="center">{{ text }}</div>
 
