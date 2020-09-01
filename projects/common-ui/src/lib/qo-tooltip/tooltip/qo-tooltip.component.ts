@@ -14,6 +14,8 @@ export class AppTooltipDirective implements OnInit, OnDestroy {
    */
   @Input('appTooltip') text = '';
 
+  @Input('ttDisabled') ttDisabled: boolean = false;
+
   /**
    * Determina la orientación del tooltip respecto del elemento referenciado, por defecto 'top', 
    * El tooltip aparece encima del  elemento
@@ -23,7 +25,7 @@ export class AppTooltipDirective implements OnInit, OnDestroy {
   @HostListener('mouseenter')
   show() {
     // Create tooltip portal
-    if (!!this.text) {
+    if (!!this.text && !this.ttDisabled) {
       this.createIfNecessaryOverlayRef();
       this._portal = this._portal || new ComponentPortal(QOTooltipComponent, this.viewContainerRef);
 
