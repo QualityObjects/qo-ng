@@ -9,7 +9,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatChipsModule } from '@angular/material/chips';
-import { MatCommonModule, MatLineModule } from '@angular/material/core';
+import { DateAdapter, MatCommonModule, MatLineModule, MAT_DATE_LOCALE } from '@angular/material/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatExpansionModule } from '@angular/material/expansion';
@@ -34,6 +34,8 @@ import { DatePickerComponent } from './datepicker/datepicker.component';
 import { UploadFileComponent } from './file-upload/upload-file-dnd.component';
 import { DragAndDropModule } from '../upload-file-dnd/drag-and-drop-module';
 import { MontChangerComponent } from './month-changer/month-changer.component';
+import { CustomDateAdapter } from './datepicker/custom-date-adapter';
+import { Platform } from '@angular/cdk/platform';
 
 
 @NgModule({
@@ -86,6 +88,11 @@ import { MontChangerComponent } from './month-changer/month-changer.component';
     UploadFileComponent
    ],
   providers: [
-]
+    {
+      provide: DateAdapter,
+      useClass: CustomDateAdapter,
+      deps: [MAT_DATE_LOCALE, Platform]
+    }
+  ]
 })
 export class QOCommonInputsModule { }
