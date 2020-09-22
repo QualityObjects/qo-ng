@@ -4,7 +4,7 @@ import { DateTime } from 'luxon';
 
 export class CustomDateAdapter extends NativeDateAdapter {
   
-  constructor(private matDateLocale: string, platform: Platform) {
+  constructor(matDateLocale: string, platform: Platform) {
     super(matDateLocale, platform);
     
   }
@@ -32,7 +32,9 @@ export class CustomDateAdapter extends NativeDateAdapter {
         return DateTime.fromJSDate(dateRawValue);
       } else if (dateRawValue._isAMomentObject) {
         return DateTime.fromJSDate(dateRawValue.toDate());
-      } else {
+      } else if (typeof dateRawValue === 'number') {
+        return DateTime.fromMillis(dateRawValue);
+      } else if (typeof dateRawValue === 'string') {
         let date = (dateRawValue.length >= 8 && dateRawValue.length <= 10) && DateTime.fromISO(dateRawValue);
         if (!date.isValid) {
           // see: https://moment.github.io/luxon/docs/manual/parsing.html#table-of-tokens
