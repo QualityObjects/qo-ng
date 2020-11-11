@@ -110,7 +110,7 @@ export class DatePickerComponent implements ControlValueAccessor {
     filterDays = (d: Moment): boolean => {
         let result: boolean = false;
 
-        this.intervalList && this.intervalList.forEach((interval: Interval) => {
+        !!d && this.intervalList && this.intervalList.forEach((interval: Interval) => {
             if (!result) {
                 console.log(`INTERVALO: ${interval.start.toISODate()} - ${interval.end.toISODate()}, FECHA: ${DateTime.fromJSDate(d.toDate()).toISODate()}, CONTIENE: ${interval.contains(DateTime.fromJSDate(d.toDate()))}`);
                 result =  interval.contains(DateTime.fromJSDate(d.toDate()));
