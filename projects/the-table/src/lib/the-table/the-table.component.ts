@@ -360,7 +360,7 @@ export class TheTableComponent implements OnInit {
     this.sort.direction = this.firstSortDir;
 
     if (!!this.pagedTable) {
-      this.paginator.pageSize = 10;
+      this.paginator.pageSize = PAGE_SIZE_VALUES[0];
       /* this.paginator._intl.itemsPerPageLabel = translate('table.elements-per-page') || "Elementos por página"; */
       this.paginator._intl.itemsPerPageLabel = "Elementos por página";
       /* this.paginator._intl.nextPageLabel = translate('table.next-page') || "Página siguiente"; */
