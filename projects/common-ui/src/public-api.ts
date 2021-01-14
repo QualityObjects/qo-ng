@@ -32,3 +32,4 @@ export * from './lib/pipes/pipes-module';
 export * from './lib/qo-tooltip/qo-tooltip-module';
 export * from './lib/qo-tooltip/tooltip/qo-tooltip.component';
 export * from './lib/qo-tooltip/tooltip/qo-tooltip-ellipsis.directive';
+export * from './lib/validators/validator-dni-nie';
