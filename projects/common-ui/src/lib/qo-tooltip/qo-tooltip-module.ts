@@ -28,7 +28,7 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatTooltipModule, TooltipComponent } from '@angular/material/tooltip';
+import { MatTooltipModule } from '@angular/material/tooltip';
 import { RouterModule } from '@angular/router';
 import { AppTooltipEllipsisDirective } from './tooltip/qo-tooltip-ellipsis.directive';
 import { AppTooltipDirective, QOTooltipComponent } from './tooltip/qo-tooltip.component';
@@ -41,44 +41,14 @@ import { AppTooltipDirective, QOTooltipComponent } from './tooltip/qo-tooltip.co
 
   ],
   imports: [
-    RouterModule,
+    
     CommonModule,
-    CdkAccordionModule,
-    MatSidenavModule,
-    MatInputModule,
-    MatIconModule,
-    MatListModule,
-    MatMenuModule,
-    MatToolbarModule,
-    MatTooltipModule,
-    MatTabsModule,
-    MatCheckboxModule,
-    MatProgressBarModule,
-    MatSelectModule,
-    MatCardModule,
-    MatButtonModule,
-    MatLineModule,
-    MatBadgeModule,
-    MatChipsModule,
-    MatSnackBarModule,
-    MatExpansionModule,
-    MatRadioModule,
-    MatTableModule,
-    MatSortModule,
-    MatPaginatorModule,
-    FormsModule,
-    MatCommonModule,
-    MatProgressSpinnerModule,
-    CdkTableModule,
-    ReactiveFormsModule,
-    MatDialogModule,
-    MatDatepickerModule,
     FlexLayoutModule
     ],
     entryComponents: [
     ],
   exports: [
-    TooltipComponent,
+    QOTooltipComponent,
     AppTooltipEllipsisDirective,
     AppTooltipDirective
    ],

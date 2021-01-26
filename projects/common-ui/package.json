@@ -1,6 +1,6 @@
 {
     "name": "@qo-ng/common-ui",
-    "version": "1.0.3",
+    "version": "1.0.8-1",
     "peerDependencies": {
         "@angular/animations": "^9.1.11",
         "@angular/common": "^9.1.11",
@@ -13,7 +13,6 @@
         "@angular/material": "^9.2.4",
         "@angular/material-moment-adapter": "^9.2.4",
         "@angular/router": "^9.1.11",
-        "moment": "2.24.0",
         "luxon": "^1.22.0"
     },
     "dependencies": {
