@@ -19,7 +19,7 @@ export class PaginationDataRequest {
         params = params.append('_pageSize', `${this.pageSize}`);
         params = params.append('_sortDir', `${this.sortDir}`.toUpperCase());
         this.sortFields.forEach(fieldName => {
-            params = params.append('sortFields', fieldName);
+            params = params.append('_sortFields', fieldName);
         });
         return params;
     }
