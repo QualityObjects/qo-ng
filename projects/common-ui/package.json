@@ -1,6 +1,6 @@
 {
     "name": "@qo-ng/common-ui",
-    "version": "1.0.8",
+    "version": "1.0.10",
     "peerDependencies": {
         "@angular/animations": "^9.1.11",
         "@angular/common": "^9.1.11",

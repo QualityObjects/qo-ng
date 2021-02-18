@@ -97,7 +97,7 @@
     class="table-footer">
     <ng-content select="[position=footer]"></ng-content>
     <mat-paginator [style.visibility]="pagedTable ? 'visible': 'hidden'" fxFlex [length]="pagedDs?.total | async"
-        [pageSize]="initialPageSize" [pageSizeOptions]="[10, 25, 100, 500]"></mat-paginator>
+        [pageSize]="initialPageSize" [pageSizeOptions]="pageSizeOptions"></mat-paginator>
 </div>
 
 <ng-template #actionOnHeader let-headerAction="headerAction">

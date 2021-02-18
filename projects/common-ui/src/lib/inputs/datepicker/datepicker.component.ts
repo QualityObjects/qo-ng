@@ -105,21 +105,21 @@ export class DatePickerComponent implements ControlValueAccessor {
      }
 
     /**
-    * El filtro para desactivar las fechas
+    * El filtro para desactivar las fechas lo comentamos de momento
     */
-    filterDays = (d: Moment): boolean => {
+    /* filterDays = (d: Moment): boolean => {
         let result: boolean = false;
 
-        this.intervalList.forEach((interval: Interval) => {
+        !!d && this.intervalList && this.intervalList.forEach((interval: Interval) => {
             if (!result) {
-                //console.log(`INTERVALO: ${interval.start.toISODate()} - ${interval.end.toISODate()}, FECHA: ${DateTime.fromJSDate(d.toDate()).toISODate()}, CONTIENE: ${interval.contains(DateTime.fromJSDate(d.toDate()))}`);
-                result = interval.contains(DateTime.fromJSDate(d.toDate()));
+                console.log(`INTERVALO: ${interval.start.toISODate()} - ${interval.end.toISODate()}, FECHA: ${DateTime.fromJSDate(d.toDate()).toISODate()}, CONTIENE: ${interval.contains(DateTime.fromJSDate(d.toDate()))}`);
+                result =  interval.contains(DateTime.fromJSDate(d.toDate()));
             }
         });
 
         return !result;
     }
-
+ */
     chosenMonthHandler(monthDate: Date, datepicker: MatDatepicker<Date>) {
         if (this.monthInput) {
             this.dateValue = monthDate;

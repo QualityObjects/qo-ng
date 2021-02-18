@@ -14,6 +14,7 @@ import { SelectionModel } from '@angular/cdk/collections';
 
 export const SELECTION_COLUMN = 'checkbox';
 export const ACTIONS_COLUMN = 'actions';
+export const PAGE_SIZE_VALUES = [15, 30, 100, 500];
 
 export interface ExpandCollapseEvent {
   row: any;
@@ -150,7 +151,7 @@ export class TheTableComponent implements OnInit {
    * Only for paged tables
    */
   @Input('initialPageSize')
-  public initialPageSize: number = 10;
+  public initialPageSize: number = PAGE_SIZE_VALUES[0];
 
   /**
    * Current filter.
@@ -229,6 +230,11 @@ export class TheTableComponent implements OnInit {
    * as an additional parameter (dropEvent param)
    */
   public dropEvent: any;
+
+  /**
+   * Array that save the number of elements that show for page
+   */
+  public pageSizeOptions: number[] = PAGE_SIZE_VALUES;
 
   /**
    * Factory method to create a function that close the detail view.
@@ -354,7 +360,7 @@ export class TheTableComponent implements OnInit {
     this.sort.direction = this.firstSortDir;
 
     if (!!this.pagedTable) {
-      this.paginator.pageSize = 10;
+      this.paginator.pageSize = PAGE_SIZE_VALUES[0];
       /* this.paginator._intl.itemsPerPageLabel = translate('table.elements-per-page') || "Elementos por página"; */
       this.paginator._intl.itemsPerPageLabel = "Elementos por página";
       /* this.paginator._intl.nextPageLabel = translate('table.next-page') || "Página siguiente"; */
