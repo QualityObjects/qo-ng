@@ -15,11 +15,11 @@ export class PaginationDataRequest {
 
     public toHttpParams(): HttpParams {
         let params = new HttpParams({ fromObject: this.filter });
-        params = params.append('page', `${this.page}`);
-        params = params.append('pageSize', `${this.pageSize}`);
-        params = params.append('sortDir', `${this.sortDir}`.toUpperCase());
+        params = params.append('_page', `${this.page}`);
+        params = params.append('_pageSize', `${this.pageSize}`);
+        params = params.append('_sortDir', `${this.sortDir}`.toUpperCase());
         this.sortFields.forEach(fieldName => {
-            params = params.append('sortFields', fieldName);
+            params = params.append('_sortFields', fieldName);
         });
         return params;
     }

@@ -1,22 +1,9 @@
 {
     "name": "@qo-ng/common-ui",
     "version": "1.1.1",
-    "peerDependencies": {
-        "@angular/animations": "^9.1.11",
-        "@angular/common": "^9.1.11",
-        "@angular/core": "^9.1.11",
-        "@angular/flex-layout": "^9.0.0-beta.29",
-        "@angular/forms": "^9.1.11",
-        "@angular/platform-browser": "^9.1.11",
-        "@angular/platform-browser-dynamic": "^9.1.11",
-        "@angular/cdk": "^9.2.4",
-        "@angular/material": "^9.2.4",
-        "@angular/material-moment-adapter": "^9.2.4",
-        "@angular/router": "^9.1.11",
-        "luxon": "^1.22.0"
-    },
+    "peerDependencies": {},
     "dependencies": {
-        "tslib": "^1.10.0"
+        "tslib": "^2.0.0"
     },
     "publishConfig": {
         "registry": "https://nexus.qodev.es/repository/qo-npm/"
@@ -24,7 +11,8 @@
     "description": "This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.11.",
     "main": "public-api.js",
     "scripts": {
-        "version": "echo $npm_package_version"
+        "version": "echo $npm_package_version",
+        "ng": "ng"
     },
     "repository": {
         "type": "git",
