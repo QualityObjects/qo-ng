@@ -6,7 +6,10 @@ export class CustomDateAdapter extends NativeDateAdapter {
   
   constructor(matDateLocale: string, platform: Platform) {
     super(matDateLocale, platform);
-    super.setLocale('es');
+  }
+
+  getFirstDayOfWeek() : number {
+    return 1; // Lunes
   }
 
   parse(value: any): Date | null {
