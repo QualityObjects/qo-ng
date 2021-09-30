@@ -1,5 +1,7 @@
 /* @import 'siroco-theme'; */
 
+$table_min_width: 800px;
+
 :host {
     width: 100%;
 }
@@ -11,7 +13,7 @@
 .mat-table ::ng-deep {
     .mat-row {
         display: inline-flex;
-        min-width: 1200px;
+        min-width: $table_min_width;
         border: none;
         min-height: unset;
         align-items: stretch;
@@ -56,7 +58,7 @@
         }
     }
     .mat-header-row {
-        min-width: 1200px;
+        min-width: $table_min_width;
     }
     .mat-header-cell:first-of-type {
         padding-left: 0px;
