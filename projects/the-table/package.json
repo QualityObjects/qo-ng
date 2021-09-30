@@ -1,6 +1,6 @@
 {
     "name": "@qo-ng/the-table",
-    "version": "1.1.0",
+    "version": "1.2.0",
     "peerDependencies": {
     },
     "dependencies": {
