@@ -14,6 +14,7 @@ pipeline {
     }
     parameters {
         string(name: 'BRANCH', defaultValue: 'dev', description: 'Rama a construir')
+        choice(name: 'LIB_NAME', choices: ['common-ui', 'the-table'], description: 'Opciones: common-ui, the-table')
         booleanParam(name: 'PUBLISH', defaultValue: true, description: 'Publica el artefacto en el repositorio Nexus')
         booleanParam(name: 'MAKE_RELEASE', defaultValue: false, description: 'Se crea una release desde master')
     }
