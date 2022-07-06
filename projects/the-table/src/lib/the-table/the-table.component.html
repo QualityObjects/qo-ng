@@ -97,8 +97,8 @@
     class="table-footer">
     <ng-content select="[position=footer]"></ng-content>
     
-    <ng-container [style.visibility]="!isEmpty()" *ngFor="let footerButton of footerButtons">
-        <ng-container *ngIf="!footerButton.collapseInMenu && !footerButton.show"
+    <ng-container *ngFor="let footerButton of footerButtons">
+        <ng-container *ngIf="!isEmpty() && !footerButton.collapseInMenu && !footerButton.show"
             [ngTemplateOutlet]="renderAction" [ngTemplateOutletContext]="{ action: footerButton }">
         </ng-container>
     </ng-container>
