@@ -317,6 +317,12 @@ export class TheTableComponent implements OnInit {
   public selectionChange: EventEmitter<any[]> = new EventEmitter<any[]>();
 
   /**
+   * List of defined footer button actions
+   */
+   @Input('footerButtons')
+   public footerButtons: RowActions<any>[];
+
+  /**
    * Manage the selected rows in the table
    * The selecion is cleared when refresh.
    */

@@ -96,6 +96,13 @@
 <div [style.visibility]="pagedTable ? 'visible': 'hidden'" fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="10px"
     class="table-footer">
     <ng-content select="[position=footer]"></ng-content>
+    
+    <ng-container *ngFor="let footerButton of footerButtons">
+        <ng-container *ngIf="!isEmpty() && !footerButton.collapseInMenu && !footerButton.show"
+            [ngTemplateOutlet]="renderAction" [ngTemplateOutletContext]="{ action: footerButton }">
+        </ng-container>
+    </ng-container>
+
     <mat-paginator [style.visibility]="pagedTable ? 'visible': 'hidden'" fxFlex [length]="pagedDs?.total | async"
         [pageSize]="initialPageSize" [pageSizeOptions]="pageSizeOptions"></mat-paginator>
 </div>
