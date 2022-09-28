@@ -475,7 +475,7 @@ export class TheTableComponent implements OnInit {
    * @param flex
    */
   public getColumnWidth(flex: number): number {
-    console.log('flex:', flex, ', totalVisibleColumnsWidth: ', this.totalVisibleColumnsWidth(), ', minus: ', (100 - (this.actionsColFlex + (this.hasCheckboxColumn() ? 5 : 0))))
+    //console.log('flex:', flex, ', totalVisibleColumnsWidth: ', this.totalVisibleColumnsWidth(), ', minus: ', (100 - (this.actionsColFlex + (this.hasCheckboxColumn() ? 5 : 0))))
     return flex / this.totalVisibleColumnsWidth() * (100 - (this.actionsColFlex + (this.hasCheckboxColumn() ? 5 : 0)));
   }
 
