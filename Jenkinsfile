@@ -1,4 +1,4 @@
-def gitCredentialsId = 'GitLab-qualityobjects'
+def gitCredentialsId = 'github-qoadmin'
 def dockerCredentialsId = 'docker-registry.qodev.es'
 def npmrcCredentialsId = '.npmrc'
 
@@ -34,7 +34,7 @@ pipeline {
                 }
 
                 dir("${LIB_NAME}") {
-                    git url: 'git@gitlab.com:qointernal/qo-libs/qo-ng.git',
+                    git url: 'git@github.com:QualityObjects/qo-ng.git',
                             branch: '${BRANCH}',
                             credentialsId: gitCredentialsId
 
